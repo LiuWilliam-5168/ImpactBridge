@@ -290,9 +290,7 @@ export function AssessmentSection() {
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <Button asChild className="rounded-full">
-                      <Link to="/projects" search={{ view: "funding" }}>
-                        Find funding
-                      </Link>
+                      <Link to="/projects">Find funding</Link>
                     </Button>
                     <Button asChild variant="outline" className="rounded-full">
                       <Link to="/volunteers">Find volunteers</Link>
