@@ -15,18 +15,18 @@ export function WorldMap({
   onSelect?: (id: string) => void;
 }) {
   const dots: { x: number; y: number }[] = [];
-  const landmasses = [
-    { x: [18, 34], y: [18, 44] }, // North America
-    { x: [26, 36], y: [56, 82] }, // South America
-    { x: [46, 58], y: [16, 34] }, // Europe
-    { x: [48, 62], y: [38, 78] }, // Africa
-    { x: [58, 82], y: [20, 52] }, // Asia
-    { x: [78, 88], y: [62, 76] }, // Oceania
+  const landmasses: { x0: number; x1: number; y0: number; y1: number }[] = [
+    { x0: 18, x1: 34, y0: 18, y1: 44 }, // North America
+    { x0: 26, x1: 36, y0: 56, y1: 82 }, // South America
+    { x0: 46, x1: 58, y0: 16, y1: 34 }, // Europe
+    { x0: 48, x1: 62, y0: 38, y1: 78 }, // Africa
+    { x0: 58, x1: 82, y0: 20, y1: 52 }, // Asia
+    { x0: 78, x1: 88, y0: 62, y1: 76 }, // Oceania
   ];
 
   for (let x = 8; x <= 94; x += 2.2) {
     for (let y = 12; y <= 86; y += 3.2) {
-      if (landmasses.some((l) => x >= l.x[0] && x <= l.x[1] && y >= l.y[0] && y <= l.y[1])) {
+      if (landmasses.some((l) => x >= l.x0 && x <= l.x1 && y >= l.y0 && y <= l.y1)) {
         dots.push({ x, y });
       }
     }
