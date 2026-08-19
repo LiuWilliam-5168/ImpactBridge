@@ -1,624 +1,113 @@
-# Community Energy Connect
-
-Create a modern, minimalist web platform prototype called ImpactBridge.
-
-1. Concept
-
-ImpactBridge connects small and rural communities that need better energy access with:
-
-Renewable energy solutions
-
-Funding opportunities
-
-NGOs and implementation partners
-
-Skilled volunteers
-
-Communities can submit information about their location, population, energy needs, existing infrastructure and local skills. ImpactBridge then uses an AI-powered assessment to generate a preliminary energy project concept, including a suggested solution, components, estimated needs, potential funding requirements and suitable volunteer skills.
-
-Volunteers can browse projects around the world, find projects that match their skills and interests, and participate in meaningful cultural exchange with local communities.
-
-The website should communicate:
-
-Energy access. Human connection. Real impact.
-
-The platform should feel like a combination of a clean-tech platform, social-impact marketplace and volunteer community.
-
-2. Visual style
-
-Use a minimalistic, elegant and premium startup aesthetic.
-
-Style inspiration:
-
-Modern climate-tech startup
-
-Clean SaaS dashboard
-
-Sustainable development platform
-
-High-end but approachable
-
-Lots of white space
-
-Clean typography
-
-Rounded cards
-
-Subtle shadows
-
-Very little visual clutter
-
-Color palette
-
-Use mostly:
-
-White / off-white backgrounds
-
-Very dark green for primary text
-
-Natural forest green for primary buttons
-
-Softer sage / light green for backgrounds and accents
-
-Very subtle gray for borders and secondary text
-
-Avoid:
-
-Bright neon green
-
-Excessive gradients
-
-Too many colors
-
-Corporate blue
-
-Heavy animations
-
-The overall feeling should be:
-
-sustainable + trustworthy + human + technological + international
-
-3. Navigation
-
-Create a clean top navigation bar.
-
-Left:
-ImpactBridge logo with a simple minimalist bridge/leaf icon.
-
-Navigation:
-
-Projects
-
-How it works
-
-For Communities
-
-For Volunteers
-
-About
-
-Right:
-
-Get involved button
-
-Small user/profile icon.
-
-The navigation should remain simple and elegant.
-
-4. Homepage / Hero section
-
-Create a large hero section.
-
-Headline:
-
-Energy access.
-Human connection.
-Real impact.
-
-Highlight "Real impact." in green.
-
-Subheadline:
-
-ImpactBridge connects communities with renewable energy solutions, funding and people around the world.
-
-Primary CTA:
-
-Explore projects
-
-Secondary CTA:
-
-Start a community project
-
-On the right side, create a clean visual showing a stylized world map with several green location markers.
-
-Below/overlapping the map, show a realistic project card:
-
-Solar Microgrid – Kenya
-
-120 households
-$32,000 needed
-70% funded
-
-Progress bar showing 70%.
-
-Button:
-
-View project
-
-The map should immediately communicate that ImpactBridge is a global platform connecting real projects with people.
-
-5. Three user pathways
-
-Immediately below the hero, create three elegant cards:
-
-For Communities
-
-Turn your energy needs into a project.
-
-Share information about your community and receive a preliminary energy concept and connections to potential partners.
-
-Button:
-Start a project
-
-For Volunteers
-
-Use your skills. Make a difference.
-
-Discover projects where you can contribute your skills while experiencing local communities and cultures.
-
-Button:
-Find a project
-
-For Partners
-
-Support projects that create lasting impact.
-
-Help finance, develop or implement renewable energy projects in underserved communities.
-
-Button:
-Become a partner
-
-Use simple line icons for each.
-
-6. "How it works" section
-
-Create a very simple 3-step process.
-
-01 — Communities share their needs
-
-Communities or NGOs provide information about:
-
-Location
-
-Population
-
-Energy needs
-
-Existing infrastructure
-
-Local resources
-
-Local technical skills
-
-02 — ImpactBridge creates the match
-
-Our platform generates a preliminary project concept and helps connect communities with:
-
-Renewable energy solutions
-
-Funding opportunities
-
-NGOs
-
-Technical partners
-
-Volunteers
-
-03 — People make it happen
-
-Communities, partners and volunteers work together to create sustainable local energy solutions.
-
-Visually connect the three steps with a subtle green line.
-
-7. AI Energy Assessment — IMPORTANT
-
-Create an interactive section called:
-
-Find your energy solution
-
-This should be one of the main features of the prototype.
-
-Add an attractive form where a community can enter:
-
-Country / location
-
-Population
-
-Current electricity access
-
-Main energy needs
-
-Existing infrastructure
-
-Available local skills
-
-Main facilities (school, health center, households, businesses etc.)
-
-Available renewable resources
-
-Example input:
-
-Location:
-Kenya
-
-Population:
-500
-
-Electricity access:
-Limited / unreliable
-
-Main needs:
-School, health center, households
-
-Existing infrastructure:
-Small diesel generator
-
-Local skills:
-2 electricians
-
-Then add a large button:
-
-Generate preliminary solution
-
-When clicked, display an AI-generated result card.
-
-Example result:
-
-Preliminary project concept
-
-Solar PV + Battery Microgrid
-
-Recommended focus:
-
-School
-
-Health center
-
-120 households
-
-Potential components:
-
-Solar PV system
-
-Battery storage
-
-Inverter system
-
-Distribution network
-
-Estimated funding requirement:
-
-€32,000–€40,000
-
-Skills needed:
-
-Electrical engineering · Solar installation · Project management
-
-Then buttons:
-
-Find funding
-
-Find volunteers
-
-Save project
-
-Make it clear that this is a preliminary AI-generated concept and not a final engineering design.
-
-For the prototype, use a realistic mock AI response if a real AI API is not available. Structure the application so the AI functionality can later be connected to an API.
-
-8. Projects page
-
-Create a dedicated Projects page.
-
-Show projects as elegant cards with:
-
-Country
-
-Community/project name
-
-Energy challenge
-
-Renewable energy solution
-
-Funding progress
-
-Volunteers needed
-
-Skills needed
-
-Project duration
-
-Example:
-
-Solar Microgrid — Kenya
-
-120 households
-
-70% funded
-
-Skills needed:
-Solar installation · Electrical engineering
-
-View project
-
-Create filters:
-
-Location
-
-Project type
-
-Skills
-
-Funding status
-
-Duration
-
-Also include a map view showing project locations.
-
-9. Project detail page
-
-When a user clicks a project, show:
-
-Large project image / community image
-
-Solar Microgrid for Kijiji Community
-
-Kenya
-
-The challenge
-
-500 people currently have limited access to reliable electricity.
-
-The proposed solution
-
-Solar PV + battery storage system serving households and essential community facilities.
-
-What is needed
-
-Funding:
-€40,000
-
-Volunteers:
-3
-
-Skills:
-
-Electrical engineering
-
-Solar installation
-
-Project management
-
-Community engagement
-
-Funding progress
-
-Large visual progress bar.
-
-Volunteer opportunities
-
-Show individual roles:
-
-Solar Energy Volunteer
-2–4 weeks
-
-Electrical Engineering Volunteer
-2 weeks
-
-Community Engagement
-1–2 weeks
-
-Buttons:
-
-Support this project
-
-Apply as volunteer
-
-10. Volunteer experience
-
-Create a separate volunteer area.
-
-Headline:
-
-Don't just visit a place. Become part of a community.
-
-Explain that ImpactBridge is not simply a volunteer marketplace.
-
-The experience combines:
-
-Contribution + Learning + Cultural Exchange
-
-Create project cards where volunteers can see:
-
-Location
-
-Project
-
-Skills needed
-
-Duration
-
-Accommodation information
-
-Community activities
-
-Cultural experience
-
-Number of volunteers
-
-Example:
-
-Renewable Energy Project — Lesotho
-
-2-week experience
-
-Skills:
-Energy systems · Electrical engineering
-
-Explore opportunity
-
-Also create a simple volunteer profile concept where users can list:
-
-Skills
-
-Education
-
-Professional experience
-
-Languages
-
-Interests
-
-Availability
-
-This information can later be used for volunteer-project matching.
-
-11. Volunteer community / social network
-
-Create a lightweight social/community page.
-
-Users can:
-
-Follow projects
-
-See project updates
-
-Connect with other volunteers
-
-Share experiences
-
-Post photos and updates
-
-Communicate with project communities
-
-Keep this simple for the prototype. It should look more like a professional impact community than a traditional social-media platform.
-
-12. Impact section
-
-Create a visually strong section showing measurable impact.
-
-Examples:
-
-12 Communities
-
-supported
-
-1,850 People
-
-with improved energy access
-
-8 Projects
-
-in development
-
-42 Volunteers
-
-connected
-
-Use large numbers and simple icons.
-
-These can be mock/demo numbers for the prototype.
-
-13. About / Vision
-
-Create a section explaining:
-
-Our vision
-
-A world where every community can access the energy, resources, knowledge and people needed to build a sustainable future.
-
-Emphasize that ImpactBridge is about more than energy infrastructure:
-
-It is about connecting people.
-
-14. Overall user experience
-
-The website should feel:
-
-Trustworthy
-
-Human
-
-International
-
-Simple
-
-Innovative
-
-Sustainable
-
-Impact-oriented
-
-Avoid making it look like a generic NGO website.
-
-It should look like a real technology startup that could eventually scale globally.
-
-Use subtle hover effects and smooth transitions, but keep animations restrained.
-
-Make the website fully responsive for desktop and mobile.
-
-Use high-quality placeholder imagery showing:
-
-Rural communities
-
-Renewable energy
-
-Solar panels
-
-People working together
-
-Cultural exchange
-
-Rural landscapes
-
-Images should feel authentic and human rather than corporate stock photography.
-
-15. Most important prototype flow
-
-Make sure the following flow works in the prototype:
-
-Homepage → Start a community project → Enter community information → Generate preliminary AI energy solution → View recommended project → Find funding / Find volunteers
-
-And also:
-
-Homepage → Explore projects → Select project → View project details → Apply as volunteer
-
-The prototype should demonstrate these two journeys clearly because they will be used in a startup pitch.
-
-16. Branding
-
-Use the name:
-
-ImpactBridge
-
-Potential tagline:
-
-Energy access. Human connection. Real impact.
-
-Logo concept:
-A very simple abstract bridge combined with a leaf or energy symbol. Keep it minimal enough to work as a small website icon.
-
-Do not make the logo overly literal or complicated.
-
-The final website should look like a polished early-stage climate-tech startup MVP, not an academic project or NGO website.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+# ImpactBridge
+
+> Energy access. Human connection. Real impact.
+
+ImpactBridge is a web platform prototype that connects small and rural communities
+needing better energy access with the renewable energy solutions, funding, implementation
+partners, and skilled volunteers that can make projects happen.
+
+Communities describe their location, population, energy needs, existing infrastructure,
+and local skills. ImpactBridge generates a preliminary energy project concept — a suggested
+solution, components, estimated funding range, and the volunteer skills required. Volunteers
+can browse projects worldwide, match on their skills, and take part in meaningful cultural
+exchange with local communities.
+
+The product is positioned somewhere between a clean-tech platform, a social-impact
+marketplace, and a volunteer community.
+
+## Features
+
+- **AI energy assessment** — communities enter their details and receive a preliminary
+  project concept (recommended solution, components, funding range, timeline, and skills).
+- **Project directory** — browse energy projects around the world with filters for location,
+  type, skills, funding status, and duration, plus a world-map view.
+- **Project detail pages** — challenge, proposed solution, funding progress, and individual
+  volunteer roles for each project.
+- **Volunteer experience** — a volunteer area framing each project as contribution +
+  learning + cultural exchange, with accommodation and community-activity details.
+- **Impact community** — a lightweight feed of field updates from projects and volunteers.
+- **Impact metrics** — headline numbers on communities supported, people reached, and
+  volunteers connected.
+
+> **Prototype note:** This is a front-end prototype. Project data is currently hardcoded
+> (`src/lib/projects.ts`) and the energy assessment is a deterministic mock
+> (`src/lib/assessment.ts`), not a real model. The assessment is deliberately shaped as an
+> `async` function so its call site can later be swapped for a real AI API without changing
+> any UI code.
+
+## Tech stack
+
+- **Framework:** [TanStack Start](https://tanstack.com/start) (SSR) with
+  [TanStack Router](https://tanstack.com/router) (file-based routing) and
+  [TanStack Query](https://tanstack.com/query)
+- **UI:** React 19, TypeScript, [Tailwind CSS v4](https://tailwindcss.com),
+  [shadcn/ui](https://ui.shadcn.com) (Radix primitives), [lucide-react](https://lucide.dev) icons
+- **Build tooling:** [Vite 8](https://vite.dev)
+- **Forms & validation:** react-hook-form, zod
+
+## Getting started
+
+You need [Node.js](https://nodejs.org) (v20+) and npm.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone git@github.com:LiuWilliam-5168/ImpactBridge.git
+cd ImpactBridge
+npm install
 npm run dev
 ```
+
+The dev server runs at **http://localhost:5173**.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Production build |
+| `npm run build:dev` | Build in development mode |
+| `npm run preview` | Preview a production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run format` | Format the codebase with Prettier |
+
+## Project structure
+
+```
+src/
+├── routes/               # File-based routes (TanStack Router)
+│   ├── __root.tsx        # App shell: header, footer, error/404 boundaries, <head>
+│   ├── index.tsx         # Home
+│   ├── projects.index.tsx        # /projects — directory + filters
+│   ├── projects.$projectId.tsx   # /projects/:id — project detail
+│   ├── communities.tsx   # /communities — "For Communities" + assessment
+│   ├── community.tsx      # /community — impact community feed
+│   ├── volunteers.tsx    # /volunteers — volunteer experience
+│   ├── how-it-works.tsx  # /how-it-works
+│   └── about.tsx         # /about
+├── components/
+│   ├── ui/               # shadcn/ui primitives
+│   ├── sections/         # Home-page sections (HowItWorks, Impact, Pathways)
+│   ├── layout/           # SiteHeader, SiteFooter
+│   ├── brand/            # Logo
+│   └── *.tsx             # Feature components (WorldMap, ProjectCard, AssessmentSection)
+├── lib/
+│   ├── projects.ts       # Mock project dataset + helpers
+│   ├── assessment.ts     # Mock AI energy assessment (swap for a real API here)
+│   └── ...               # SSR error handling helpers
+├── assets/               # Project & community imagery
+├── router.tsx            # Router + QueryClient setup
+├── server.ts             # SSR entry with error normalization
+└── start.ts              # Request middleware (error handling, CSRF)
+```
+
+Routing is **file-based** — every file in `src/routes/` maps to a URL, and
+`src/routeTree.gen.ts` is generated automatically (don't edit it by hand).
+
+## Key user flows
+
+The prototype is built around two journeys:
+
+1. **Community → project concept:** Home → *Start a community project* → enter community
+   information → generate a preliminary energy solution → view the recommended project →
+   find funding / volunteers.
+2. **Volunteer → contribution:** Home → *Explore projects* → select a project → view details
+   → apply as a volunteer.
