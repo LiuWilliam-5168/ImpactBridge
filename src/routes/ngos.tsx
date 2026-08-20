@@ -12,16 +12,17 @@ import { projects } from "@/lib/projects";
 export const Route = createFileRoute("/ngos")({
   head: () => ({
     meta: [
-      { title: "For NGOs & funders — fund clean water in Ghana | ImpactBridge" },
+      { title: "For NGOs & funders — fund clean water in Nicaragua | ImpactBridge" },
       {
         name: "description",
         content:
-          "Fund vetted, community-led clean-water projects in Ghana with transparent fund tracking and field-level reporting on every dollar.",
+          "Fund vetted, community-led clean-water projects in Nicaragua with transparent fund tracking and field-level reporting on every dollar.",
       },
       { property: "og:title", content: "For NGOs & funders — ImpactBridge" },
       {
         property: "og:description",
-        content: "Vetted, community-led clean-water projects in Ghana with transparent reporting.",
+        content:
+          "Vetted, community-led clean-water projects in Nicaragua with transparent reporting.",
       },
     ],
   }),
@@ -82,8 +83,8 @@ function NgosPage() {
           </h1>
           <p className="mt-5 text-lg text-muted-foreground">
             ImpactBridge gives grant-makers and foundations a pipeline of vetted, community-led
-            clean-water projects across Ghana — with the transparency and reporting your board and
-            donors expect.
+            clean-water projects across Nicaragua — with the transparency and reporting your board
+            and donors expect.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="rounded-full">

@@ -82,7 +82,7 @@ function IntakeForm({
           <Label htmlFor="community">Community name</Label>
           <Input
             id="community"
-            placeholder="e.g. Zorko Community"
+            placeholder="e.g. Comunidad El Terrero"
             value={output.community}
             onChange={(e) => set("community", e.target.value)}
           />
@@ -131,7 +131,7 @@ function IntakeForm({
           <Textarea
             id="needs"
             rows={3}
-            placeholder="e.g. The dam runs dry from December and the school has no safe water."
+            placeholder="e.g. The stream runs dry from January and the school has no safe water."
             value={output.needs}
             onChange={(e) => set("needs", e.target.value)}
           />
@@ -190,7 +190,7 @@ function CommunitiesPage() {
 
           <img
             src={heroImage}
-            alt="Community members gathered around a water point in a rural Ghanaian village"
+            alt="Community members gathered around a water point in a rural Nicaraguan village"
             width={1408}
             height={1008}
             className="w-full rounded-3xl border border-border object-cover shadow-card"

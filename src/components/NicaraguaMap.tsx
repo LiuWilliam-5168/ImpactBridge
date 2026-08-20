@@ -2,27 +2,39 @@ import { projects } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
 /**
- * Stylised map of Ghana with green project markers.
+ * Stylised map of Nicaragua with green project markers.
  * The outline is an approximate silhouette (not survey-accurate); markers use
  * each project's map coordinates in percent of the viewport.
  */
 
-// Rough Ghana outline in a 0–100 viewBox (y grows downward).
+// Rough Nicaragua outline in a 0–100 viewBox (y grows downward).
+// Clockwise from the Gulf of Fonseca: Honduran border, Caribbean coast,
+// Río San Juan, then back up the Pacific coast.
 const OUTLINE: [number, number][] = [
-  [30, 14],
-  [50, 12],
-  [67, 13],
-  [70, 26],
-  [64, 40],
-  [73, 52],
-  [70, 66],
-  [71, 80],
-  [58, 87],
-  [44, 86],
-  [30, 80],
-  [27, 62],
-  [33, 44],
-  [27, 28],
+  [20, 49],
+  [25, 47],
+  [32, 43],
+  [40, 38],
+  [46, 38],
+  [54, 30],
+  [66, 25],
+  [81, 22],
+  [78, 31],
+  [78, 35],
+  [76, 43],
+  [75, 54],
+  [73, 62],
+  [75, 68],
+  [74, 77],
+  [59, 76],
+  [48, 73],
+  [46, 75],
+  [44, 72],
+  [40, 68],
+  [34, 64],
+  [28, 58],
+  [24, 55],
+  [20, 51],
 ];
 
 function pointInPolygon(x: number, y: number, poly: [number, number][]): boolean {
@@ -39,13 +51,13 @@ function pointInPolygon(x: number, y: number, poly: [number, number][]): boolean
 const outlinePath = OUTLINE.map(([x, y], i) => `${i === 0 ? "M" : "L"}${x} ${y}`).join(" ") + " Z";
 
 const dots: { x: number; y: number }[] = [];
-for (let x = 24; x <= 76; x += 2.6) {
-  for (let y = 10; y <= 90; y += 3.4) {
+for (let x = 18; x <= 82; x += 2.6) {
+  for (let y = 18; y <= 82; y += 3.4) {
     if (pointInPolygon(x, y, OUTLINE)) dots.push({ x, y });
   }
 }
 
-export function GhanaMap({
+export function NicaraguaMap({
   className,
   activeId,
   onSelect,
@@ -60,7 +72,7 @@ export function GhanaMap({
         viewBox="0 0 100 100"
         className="h-full w-full"
         role="img"
-        aria-label="Map of ImpactBridge clean-water projects across Ghana"
+        aria-label="Map of ImpactBridge clean-water projects across Nicaragua"
       >
         <path
           d={outlinePath}

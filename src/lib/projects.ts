@@ -1,12 +1,12 @@
-import upperEast from "@/assets/project-kenya.jpg";
-import western from "@/assets/project-peru.jpg";
-import northern from "@/assets/project-lesotho.jpg";
-import volta from "@/assets/project-nepal.jpg";
-import eastern from "@/assets/hero-community.jpg";
-import central from "@/assets/volunteer-exchange.jpg";
+import madriz from "@/assets/project-kenya.jpg";
+import caribeNorte from "@/assets/project-peru.jpg";
+import jinotega from "@/assets/project-lesotho.jpg";
+import matagalpa from "@/assets/project-nepal.jpg";
+import chontales from "@/assets/hero-community.jpg";
+import managua from "@/assets/volunteer-exchange.jpg";
 
 // NOTE: imagery is placeholder — these files are reused from the earlier build and
-// should be replaced with real Ghana clean-water photography.
+// should be replaced with real Nicaragua clean-water photography.
 
 export type VolunteerRole = {
   title: string;
@@ -19,7 +19,7 @@ export type Project = {
   name: string;
   community: string;
   country: string;
-  /** Ghana administrative region — used by the location filter. */
+  /** Nicaraguan department or autonomous region — used by the location filter. */
   region: string;
   type: string;
   image: string;
@@ -35,7 +35,7 @@ export type Project = {
   duration: string;
   status: "Seeking funding" | "Fully funded" | "In implementation";
   roles: VolunteerRole[];
-  /** Rough map position in percent of the Ghana map viewport. */
+  /** Rough map position in percent of the Nicaragua map viewport. */
   map: { x: number; y: number };
   experience: {
     accommodation: string;
@@ -47,19 +47,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "solar-borehole-upper-east",
+    id: "solar-borehole-madriz",
     name: "Solar Borehole & Standpipe Network",
-    community: "Zorko Community",
-    country: "Ghana",
-    region: "Upper East",
+    community: "Comunidad El Terrero",
+    country: "Nicaragua",
+    region: "Madriz",
     type: "Solar borehole",
-    image: upperEast,
+    image: madriz,
     households: 140,
     people: 620,
     challenge:
-      "620 people rely on a seasonal dam and hand-dug wells that run dry from December to April. Women and girls walk up to two hours a day to fetch water, and the primary school has no safe drinking source.",
+      "620 people in the Dry Corridor rely on a seasonal stream and hand-dug wells that run dry from January to May. Women and girls walk up to two hours a day to fetch water, and the primary school has no safe drinking source.",
     solution:
-      "A solar-powered mechanised borehole feeding an overhead tank and a network of standpipes serving households, the school and the clinic, run by a trained community water committee.",
+      "A solar-powered mechanised borehole feeding an overhead tank and a network of standpipes serving households, the school and the health post, run by a trained community water committee (CAPS).",
     solutionShort: "Solar borehole + standpipes",
     fundingGoal: 48000,
     fundingRaised: 31000,
@@ -86,31 +86,31 @@ export const projects: Project[] = [
           "Set up the water committee, tariff model and maintenance routine with residents.",
       },
     ],
-    map: { x: 55, y: 12 },
+    map: { x: 38, y: 45 },
     experience: {
       accommodation: "Homestay with a host family in the community, shared meals included.",
       activities: [
-        "Water committee meetings",
+        "Water committee (CAPS) meetings",
         "School hygiene afternoons",
-        "Weekly market day in Bolga",
+        "Sunday market in Somoto",
       ],
       culture:
-        "Learn basic Frafra greetings, cook with your host family, join community drumming evenings.",
+        "Practise everyday Nicaraguan Spanish, cook nacatamales with your host family, join Chorotega heritage evenings.",
       volunteers: 3,
     },
   },
   {
-    id: "river-treatment-western",
+    id: "river-treatment-caribe-norte",
     name: "River Water Treatment Plant",
-    community: "Prestea Riverside",
-    country: "Ghana",
-    region: "Western",
+    community: "Ribera del Bambana",
+    country: "Nicaragua",
+    region: "Costa Caribe Norte",
     type: "River water treatment",
-    image: western,
+    image: caribeNorte,
     households: 90,
     people: 410,
     challenge:
-      "Illegal gold mining (galamsey) upstream has turned the Ankobra River muddy and laden with mercury. Turbidity spikes far above treatable limits and waterborne illness is rising, yet families have no alternative source.",
+      "Artisanal gold mining (güirisería) upstream has turned the Río Bambana muddy and laden with mercury. Turbidity spikes far above treatable limits and waterborne illness is rising, yet families have no alternative source.",
     solution:
       "A community-scale treatment unit — sedimentation, filtration and disinfection sized for polluted river water — plus a water-quality monitoring routine handed over to local operators.",
     solutionShort: "River treatment + monitoring",
@@ -132,27 +132,27 @@ export const projects: Project[] = [
         description: "Set up turbidity and heavy-metal testing and a simple record-keeping system.",
       },
     ],
-    map: { x: 33, y: 82 },
+    map: { x: 61, y: 36 },
     experience: {
       accommodation: "Guesthouse rooms near the community centre.",
-      activities: ["River monitoring walks", "Clinic health days", "Cocoa farm visits"],
+      activities: ["River monitoring walks", "Clinic health days", "Cacao farm visits"],
       culture:
-        "Nzema and Twi language evenings, shared cooking, weekend football with the build team.",
+        "Miskito and Mayangna language evenings, shared cooking, weekend baseball with the build team.",
       volunteers: 2,
     },
   },
   {
-    id: "handpump-wash-northern",
+    id: "handpump-wash-jinotega",
     name: "Handpump Boreholes & WASH Program",
-    community: "Nabogu Cluster",
-    country: "Ghana",
-    region: "Northern",
+    community: "Comarcas de El Cuá",
+    country: "Nicaragua",
+    region: "Jinotega",
     type: "Handpump borehole",
-    image: northern,
+    image: jinotega,
     households: 260,
     people: 1150,
     challenge:
-      "Four neighbouring villages share two failing handpumps. Queues start before dawn and children miss school. Open-water use keeps diarrhoeal disease high through the dry season.",
+      "Four neighbouring comarcas share two failing handpumps. Queues start before dawn and children miss school. Open-water use keeps diarrhoeal disease high through the dry season.",
     solution:
       "Three new handpump boreholes across the cluster paired with a school WASH programme — hygiene education, handwashing stations and locally trained pump caretakers.",
     solutionShort: "Handpump boreholes + WASH",
@@ -175,22 +175,22 @@ export const projects: Project[] = [
         description: "Co-deliver the school hygiene curriculum and set up handwashing stations.",
       },
     ],
-    map: { x: 46, y: 32 },
+    map: { x: 48, y: 42 },
     experience: {
       accommodation: "Shared rooms in the community guesthouse, home-cooked meals.",
-      activities: ["School hygiene clubs", "Caretaker training", "Shea butter cooperative visit"],
-      culture: "Dagbani language practice, drumming and dance, communal evening meals.",
+      activities: ["School hygiene clubs", "Caretaker training", "Coffee cooperative visit"],
+      culture: "Spanish language practice, marimba evenings, communal meals with host families.",
       volunteers: 4,
     },
   },
   {
-    id: "rainwater-schools-volta",
+    id: "rainwater-schools-matagalpa",
     name: "Rainwater Harvesting for Schools",
-    community: "Have & Anfoega Schools",
-    country: "Ghana",
-    region: "Volta",
+    community: "El Tuma & La Dalia Schools",
+    country: "Nicaragua",
+    region: "Matagalpa",
     type: "Rainwater harvesting",
-    image: volta,
+    image: matagalpa,
     households: 70,
     people: 480,
     challenge:
@@ -217,26 +217,26 @@ export const projects: Project[] = [
         description: "Run pupil hygiene sessions and set up the school water-management group.",
       },
     ],
-    map: { x: 72, y: 55 },
+    map: { x: 47, y: 48 },
     experience: {
       accommodation: "Homestay in the village, walking distance to the schools.",
-      activities: ["School build days", "Kente weaving workshop", "Mountain Afadja hike"],
-      culture: "Ewe language evenings, shared cooking, community durbar celebrations.",
+      activities: ["School build days", "Black pottery workshop", "Peñas Blancas massif hike"],
+      culture: "Spanish language evenings, shared cooking, community fiestas patronales.",
       volunteers: 2,
     },
   },
   {
-    id: "piped-network-eastern",
+    id: "piped-network-chontales",
     name: "Small-Town Piped Water Expansion",
-    community: "Kyebi Township",
-    country: "Ghana",
-    region: "Eastern",
+    community: "La Libertad Township",
+    country: "Nicaragua",
+    region: "Chontales",
     type: "Piped network",
-    image: eastern,
+    image: chontales,
     households: 320,
     people: 1400,
     challenge:
-      "The town's small piped scheme reaches only the centre. Outer neighbourhoods buy from vendors at up to ten times the tariff, and the Birim River nearby is degraded by upstream mining.",
+      "The town's small piped scheme reaches only the centre. Outer barrios buy from vendors at up to ten times the tariff, and the Río Mico nearby is degraded by upstream gold mining.",
     solution:
       "Extend the piped network with new mains, metered household connections and two managed water kiosks, keeping the community water board financially self-sustaining.",
     solutionShort: "Piped mains + kiosks",
@@ -259,26 +259,27 @@ export const projects: Project[] = [
         description: "Establish routine sampling at kiosks and household taps.",
       },
     ],
-    map: { x: 58, y: 68 },
+    map: { x: 53, y: 59 },
     experience: {
-      accommodation: "Small guesthouse in the township centre.",
-      activities: ["Water board meetings", "Kiosk open days", "Okyeman heritage sites"],
-      culture: "Twi language practice, shared meals, weekend visits to the Atewa forest edge.",
+      accommodation: "Small guesthouse in the town centre.",
+      activities: ["Water board meetings", "Kiosk open days", "Juigalpa statue museum"],
+      culture:
+        "Spanish language practice, shared meals, weekend rides out to the Amerrisque foothills.",
       volunteers: 2,
     },
   },
   {
-    id: "solar-kiosks-central",
+    id: "solar-kiosks-managua",
     name: "Solar Filtration Water Kiosks",
-    community: "Gomoa Peri-Urban",
-    country: "Ghana",
-    region: "Central",
+    community: "Ciudad Sandino Peri-Urban",
+    country: "Nicaragua",
+    region: "Managua",
     type: "Water kiosk",
-    image: central,
+    image: managua,
     households: 180,
     people: 800,
     challenge:
-      "A fast-growing peri-urban settlement has no piped supply. Households rely on sachet water and unregulated tanker vendors, spending a large share of income on water of uncertain quality.",
+      "A fast-growing peri-urban settlement has no piped supply. Households rely on bagged water and unregulated tanker (pipa) vendors, spending a large share of income on water of uncertain quality.",
     solution:
       "Solar-powered filtration kiosks dispensing affordable, tested water, run as small community enterprises that fund their own maintenance and refill.",
     solutionShort: "Solar filtration kiosks",
@@ -300,15 +301,15 @@ export const projects: Project[] = [
         description: "Help set up pricing, bookkeeping and the maintenance fund with operators.",
       },
     ],
-    map: { x: 52, y: 84 },
+    map: { x: 41, y: 60 },
     experience: {
       accommodation: "Homestay with a host family, 15 minutes from the kiosks.",
       activities: [
         "Kiosk enterprise training",
         "Community health days",
-        "Coastal Cape Coast weekend",
+        "Pacific coast weekend in Pochomil",
       ],
-      culture: "Fante language exchange, shared cooking, community film nights.",
+      culture: "Spanish language exchange, shared cooking, community film nights.",
       volunteers: 2,
     },
   },
@@ -327,7 +328,15 @@ export function formatUsd(value: number): string {
 }
 
 export const filterOptions = {
-  location: ["All regions", "Upper East", "Northern", "Volta", "Eastern", "Western", "Central"],
+  location: [
+    "All regions",
+    "Madriz",
+    "Jinotega",
+    "Matagalpa",
+    "Chontales",
+    "Costa Caribe Norte",
+    "Managua",
+  ],
   type: [
     "All types",
     "Solar borehole",

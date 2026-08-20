@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 
 import { ProjectCard } from "@/components/ProjectCard";
-import { GhanaMap } from "@/components/GhanaMap";
+import { NicaraguaMap } from "@/components/NicaraguaMap";
 import {
   Select,
   SelectContent,
@@ -15,16 +15,17 @@ import { filterOptions, fundingPercent, projects } from "@/lib/projects";
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
-      { title: "Clean water projects across Ghana | ImpactBridge" },
+      { title: "Clean water projects across Nicaragua | ImpactBridge" },
       {
         name: "description",
         content:
-          "Browse community clean-water projects in Ghana seeking funding, partners and skilled volunteers — filter by region, project type, skills and duration.",
+          "Browse community clean-water projects in Nicaragua seeking funding, partners and skilled volunteers — filter by region, project type, skills and duration.",
       },
       { property: "og:title", content: "Projects — ImpactBridge" },
       {
         property: "og:description",
-        content: "Find Ghana clean-water projects that match your funding, skills or interests.",
+        content:
+          "Find Nicaragua clean-water projects that match your funding, skills or interests.",
       },
     ],
   }),
@@ -81,8 +82,8 @@ function ProjectsPage() {
             Clean-water projects, shaped with the communities that run them
           </h1>
           <p className="mt-4 max-w-xl text-muted-foreground">
-            Every project across Ghana was designed with its community. Filter for what you can fund
-            or contribute.
+            Every project across Nicaragua was designed with its community. Filter for what you can
+            fund or contribute.
           </p>
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -131,7 +132,7 @@ function ProjectsPage() {
               <p className="mt-1 text-sm text-muted-foreground">
                 Select a marker to preview a project location.
               </p>
-              <GhanaMap className="mt-4" activeId={activeId} onSelect={setActiveId} />
+              <NicaraguaMap className="mt-4" activeId={activeId} onSelect={setActiveId} />
               {active ? (
                 <div className="mt-2 rounded-2xl bg-secondary p-4">
                   <p className="text-sm font-semibold">
@@ -151,7 +152,7 @@ function ProjectsPage() {
               ) : (
                 <p className="mt-2 text-xs text-muted-foreground">
                   {projects.length} active projects across{" "}
-                  {new Set(projects.map((p) => p.region)).size} regions of Ghana.
+                  {new Set(projects.map((p) => p.region)).size} regions of Nicaragua.
                 </p>
               )}
             </div>

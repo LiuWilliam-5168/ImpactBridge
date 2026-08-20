@@ -16,7 +16,7 @@ const pathways = [
     icon: HandCoins,
     title: "For NGOs",
     tagline: "Fund water that communities run.",
-    body: "Back vetted, community-led clean-water projects across Ghana with transparent tracking and field-level reporting.",
+    body: "Back vetted, community-led clean-water projects across Nicaragua with transparent tracking and field-level reporting.",
     cta: "Fund a project",
     to: "/ngos" as const,
   },

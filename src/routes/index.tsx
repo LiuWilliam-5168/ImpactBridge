@@ -5,7 +5,7 @@ import { FundingBar } from "@/components/ProjectCard";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Impact } from "@/components/sections/Impact";
 import { Pathways } from "@/components/sections/Pathways";
-import { GhanaMap } from "@/components/GhanaMap";
+import { NicaraguaMap } from "@/components/NicaraguaMap";
 import { Button } from "@/components/ui/button";
 import { formatUsd, fundingPercent, projects } from "@/lib/projects";
 
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "ImpactBridge connects communities in Ghana with clean-water solutions, funding, partners and skilled volunteers.",
+          "ImpactBridge connects communities in Nicaragua with clean-water solutions, funding, partners and skilled volunteers.",
       },
       {
         property: "og:title",
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Connect rural communities in Ghana with clean-water solutions, funding, partners and skilled volunteers.",
+          "Connect rural communities in Nicaragua with clean-water solutions, funding, partners and skilled volunteers.",
       },
     ],
   }),
@@ -43,7 +43,7 @@ function Index() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Community water platform · Ghana
+              Community water platform · Nicaragua
             </span>
 
             <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl">
@@ -55,8 +55,8 @@ function Index() {
             </h1>
 
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
-              ImpactBridge connects communities in Ghana with clean-water solutions, funding and the
-              people who make them happen.
+              ImpactBridge connects communities in Nicaragua with clean-water solutions, funding and
+              the people who make them happen.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -73,7 +73,7 @@ function Index() {
 
           <div className="relative">
             <div className="rounded-3xl border border-border bg-card p-6 shadow-card sm:p-8">
-              <GhanaMap />
+              <NicaraguaMap />
             </div>
 
             <div className="card-soft mx-auto -mt-10 w-[min(22rem,100%)] p-5 sm:-mt-12 sm:ml-6">
@@ -113,7 +113,7 @@ function Index() {
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
             <p>
-              A Ghana where every community can access the clean water, resources, knowledge and
+              A Nicaragua where every community can access the clean water, resources, knowledge and
               people needed to build a healthy future.
             </p>
             <p className="text-ink">

@@ -56,25 +56,41 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const REGIONS = filterOptions.location.filter((r) => r !== "All regions");
 
 const DISTRICT_HINTS: Record<string, string> = {
-  bolga: "Upper East",
-  bolgatanga: "Upper East",
-  zorko: "Upper East",
-  bongo: "Upper East",
-  tamale: "Northern",
-  savelugu: "Northern",
-  nabogu: "Northern",
-  prestea: "Western",
-  ankobra: "Western",
-  tarkwa: "Western",
-  kyebi: "Eastern",
-  kibi: "Eastern",
-  birim: "Eastern",
-  atewa: "Eastern",
-  gomoa: "Central",
-  "cape coast": "Central",
-  ho: "Volta",
-  afadzato: "Volta",
-  anfoega: "Volta",
+  somoto: "Madriz",
+  cusmapa: "Madriz",
+  "san lucas": "Madriz",
+  telpaneca: "Madriz",
+  "el terrero": "Madriz",
+  "dry corridor": "Madriz",
+  "corredor seco": "Madriz",
+  "el cua": "Jinotega",
+  "el cuá": "Jinotega",
+  wiwili: "Jinotega",
+  wiwilí: "Jinotega",
+  pantasma: "Jinotega",
+  "la dalia": "Matagalpa",
+  "el tuma": "Matagalpa",
+  "san ramon": "Matagalpa",
+  "san ramón": "Matagalpa",
+  "peñas blancas": "Matagalpa",
+  juigalpa: "Chontales",
+  "la libertad": "Chontales",
+  "santo domingo": "Chontales",
+  "rio mico": "Chontales",
+  "río mico": "Chontales",
+  amerrisque: "Chontales",
+  rosita: "Costa Caribe Norte",
+  bonanza: "Costa Caribe Norte",
+  siuna: "Costa Caribe Norte",
+  bambana: "Costa Caribe Norte",
+  bilwi: "Costa Caribe Norte",
+  "puerto cabezas": "Costa Caribe Norte",
+  caribe: "Costa Caribe Norte",
+  caribbean: "Costa Caribe Norte",
+  miskito: "Costa Caribe Norte",
+  "ciudad sandino": "Managua",
+  tipitapa: "Managua",
+  pochomil: "Managua",
 };
 
 function detectRegions(text: string): string[] {
@@ -84,27 +100,30 @@ function detectRegions(text: string): string[] {
   for (const [hint, region] of Object.entries(DISTRICT_HINTS)) {
     if (lower.includes(hint)) found.add(region);
   }
-  if (/\bnorth/.test(lower)) found.add("Northern");
+  if (/\bnorth|\bnorte\b/.test(lower)) {
+    found.add("Jinotega");
+    found.add("Madriz");
+  }
   return [...found];
 }
 
 export const waterSources = [
-  "Seasonal dam / dugout",
+  "Seasonal stream / pond",
   "Hand-dug wells",
   "River / stream",
   "Failing borehole",
   "Distant borehole",
-  "Sachet / tanker vendors",
+  "Bagged / tanker (pipa) vendors",
   "No reliable source",
 ];
 
 const SOURCE_PATTERNS: [RegExp, string][] = [
-  [/seasonal dam|dugout|\bdam\b/, "Seasonal dam / dugout"],
+  [/seasonal (dam|stream)|dugout|\bpond\b|\bdam\b/, "Seasonal stream / pond"],
   [/hand-?dug|open well|\bwells?\b/, "Hand-dug wells"],
   [/river|stream/, "River / stream"],
   [/failing borehole|broken borehole|borehole.*(fail|broke|dry)/, "Failing borehole"],
   [/distant borehole|far.*borehole|borehole.*far away/, "Distant borehole"],
-  [/sachet|tanker|vendor/, "Sachet / tanker vendors"],
+  [/bagged|bottled|bolsa|tanker|pipa|vendor/, "Bagged / tanker (pipa) vendors"],
   [/no (reliable )?(water|source)|nothing safe/, "No reliable source"],
 ];
 
@@ -122,9 +141,13 @@ function detectPopulation(text: string): string {
 }
 
 function detectCommunityName(text: string): string {
+  // Allows two-word Spanish place names ("El Terrero", "La Dalia") and accents.
+  const WORD = "[A-ZÁÉÍÓÚÑ][A-Za-zÁÉÍÓÚÜÑáéíóúüñ-]+";
   const patterns = [
-    /(?:village|community|town)\s+(?:of\s+|called\s+|named\s+)?([A-Z][A-Za-z-]+)/,
-    /\bin\s+([A-Z][A-Za-z-]+)\s+(?:community|village|town)/,
+    new RegExp(
+      `(?:village|community|town|comunidad|comarca)\\s+(?:of\\s+|called\\s+|named\\s+)?(${WORD}(?:\\s+${WORD})?)`,
+    ),
+    new RegExp(`\\bin\\s+(${WORD}(?:\\s+${WORD})?)\\s+(?:community|village|town)`),
   ];
   for (const re of patterns) {
     const m = text.match(re);
@@ -162,7 +185,7 @@ const KEYWORD_PATTERNS: [RegExp, string][] = [
   [/clinic|health|maternal|vaccine|disease/, "health facilities"],
   [/women|girls|gender/, "women & girls"],
   [/sanitation|hygiene|wash/, "sanitation & hygiene"],
-  [/mining|galamsey|pollut|mercury/, "mining-affected water"],
+  [/mining|güiris|guiris|pollut|mercury/, "mining-affected water"],
   [/climate|drought|dry season/, "climate resilience"],
 ];
 
@@ -216,12 +239,12 @@ const INTAKE_QUESTIONS: { key: keyof CommunityIntake; q: string }[] = [
   { key: "community", q: "What's the name of your community?" },
   {
     key: "region",
-    q: "Which region of Ghana is it in? (Upper East, Northern, Volta, Eastern, Western or Central)",
+    q: "Which part of Nicaragua is it in? (Madriz, Jinotega, Matagalpa, Chontales, Costa Caribe Norte or Managua)",
   },
   { key: "population", q: "Roughly how many people would the project serve?" },
   {
     key: "source",
-    q: "What's your main water source right now? (e.g. seasonal dam, hand-dug wells, river, failing borehole, sachet/tanker)",
+    q: "What's your main water source right now? (e.g. seasonal stream, hand-dug wells, river, failing borehole, bagged/tanker water)",
   },
   { key: "contact", q: "Last thing — what's the best email or phone number to reach you on?" },
 ];
@@ -242,7 +265,7 @@ export const communitiesEngine: AssistantEngine<CommunityIntake> = {
   placeholder:
     "Describe your community's water situation in your own words — where you are, how many people, your current water source and the main problem…",
   example:
-    "Our village Zorko in the Upper East has about 600 people. We rely on a seasonal dam that dries up from December, so women and girls walk nearly two hours to fetch water and the school has no safe drinking water.",
+    "Our community El Terrero in Madriz has about 600 people. We rely on a seasonal stream that dries up from January, so women and girls walk nearly two hours to fetch water and the school has no safe drinking water.",
   intro:
     "Tell me about your community's water situation and I'll fill in the form for you. I'll ask about anything I'm missing.",
   initial: emptyIntake,
@@ -403,7 +426,7 @@ export const ngosEngine: AssistantEngine<MatchState> = {
   placeholder:
     "Tell me what you fund — your focus regions, causes and typical grant size — and I'll shortlist the best projects…",
   example:
-    "We're a foundation focused on maternal and child health in northern Ghana. We fund water and sanitation, usually $20–40k per project, and care most about clinics and schools.",
+    "We're a foundation focused on maternal and child health in northern Nicaragua. We fund water and sanitation, usually $20–40k per project, and care most about clinics and schools.",
   intro:
     "Describe your funding focus — regions, causes and budget — and I'll shortlist the projects that fit best.",
   initial: emptyMatchState,
@@ -435,7 +458,7 @@ export const volunteersEngine: AssistantEngine<MatchState> = {
   placeholder:
     "Tell me about your skills, interests and availability, and I'll find the projects where you'd have the most impact…",
   example:
-    "I'm a civil engineer with some solar experience, comfortable with plumbing and community training. I'm available for about 3 weeks in September and interested in the north.",
+    "I'm a civil engineer with some solar experience, comfortable with plumbing and community training. I'm available for about 3 weeks in September and interested in the northern highlands.",
   intro:
     "Tell me your skills, interests and availability and I'll match you with the projects that need you most.",
   initial: emptyMatchState,

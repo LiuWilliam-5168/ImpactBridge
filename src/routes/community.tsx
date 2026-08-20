@@ -3,8 +3,8 @@ import { Camera, MessageCircle, Plus, Star } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import upperEast from "@/assets/project-kenya.jpg";
-import western from "@/assets/project-peru.jpg";
+import madriz from "@/assets/project-kenya.jpg";
+import caribeNorte from "@/assets/project-peru.jpg";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { projects } from "@/lib/projects";
@@ -16,13 +16,13 @@ export const Route = createFileRoute("/community")({
       {
         name: "description",
         content:
-          "Follow projects, read field updates from communities and volunteers, and connect with people working on clean water in Ghana.",
+          "Follow projects, read field updates from communities and volunteers, and connect with people working on clean water in Nicaragua.",
       },
       { property: "og:title", content: "Impact community — ImpactBridge" },
       {
         property: "og:description",
         content:
-          "A professional community for people building clean-water access in Ghana together.",
+          "A professional community for people building clean-water access in Nicaragua together.",
       },
     ],
   }),
@@ -31,11 +31,11 @@ export const Route = createFileRoute("/community")({
 
 const feed = [
   {
-    author: "Abena O.",
-    role: "Community lead · Zorko, Upper East",
+    author: "Yamileth O.",
+    role: "Community lead · El Terrero, Madriz",
     time: "2 days ago",
     body: "The overhead tank is up and the first three standpipes are flowing. The school will be connected next week — the water committee agreed the tariff yesterday.",
-    image: upperEast,
+    image: madriz,
     likes: 32,
     comments: 8,
   },
@@ -43,14 +43,14 @@ const feed = [
     author: "Tom H.",
     role: "Volunteer · Water treatment",
     time: "5 days ago",
-    body: "Two weeks on the Ankobra treatment unit near Prestea. Mornings commissioning the filtration stages, afternoons training operators to log turbidity — turbidity is already down from 9,000 to under 5 NTU at the tap.",
-    image: western,
+    body: "Two weeks on the Río Bambana treatment unit near Rosita. Mornings commissioning the filtration stages, afternoons training operators to log turbidity — turbidity is already down from 9,000 to under 5 NTU at the tap.",
+    image: caribeNorte,
     likes: 47,
     comments: 13,
   },
   {
-    author: "Yaw M.",
-    role: "Community lead · Nabogu, Northern",
+    author: "Denis M.",
+    role: "Community lead · El Cuá, Jinotega",
     time: "1 week ago",
     body: "Two of the three new handpumps are drilled and the school handwashing stations are in. Queues at dawn are already shorter. Sharing our caretaker training notes with anyone starting a WASH programme.",
     likes: 21,
@@ -60,7 +60,7 @@ const feed = [
 
 const volunteers = [
   { name: "Sofia D.", skill: "Water quality testing", place: "Lisbon" },
-  { name: "Kwame A.", skill: "Borehole & pump systems", place: "Accra" },
+  { name: "Carlos A.", skill: "Borehole & pump systems", place: "Managua" },
   { name: "Mira T.", skill: "Project management", place: "Helsinki" },
   { name: "Diego S.", skill: "WASH education", place: "Lima" },
 ];

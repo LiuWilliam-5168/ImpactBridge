@@ -13,13 +13,13 @@ export const Route = createFileRoute("/companies")({
       {
         name: "description",
         content:
-          "Sponsor clean-water projects in Ghana and receive audit-ready ESG and impact reporting aligned to SDG 6 — plus employee volunteering and brand storytelling.",
+          "Sponsor clean-water projects in Nicaragua and receive audit-ready ESG and impact reporting aligned to SDG 6 — plus employee volunteering and brand storytelling.",
       },
       { property: "og:title", content: "For companies — ImpactBridge" },
       {
         property: "og:description",
         content:
-          "Sponsor clean water in Ghana and receive verified, audit-ready ESG impact reports.",
+          "Sponsor clean water in Nicaragua and receive verified, audit-ready ESG impact reports.",
       },
     ],
   }),
@@ -195,7 +195,7 @@ function CompaniesPage() {
             <span className="text-primary">and audit-ready ESG reporting.</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground">
-            Sponsor community clean-water projects in Ghana and receive verified impact reports
+            Sponsor community clean-water projects in Nicaragua and receive verified impact reports
             aligned to SDG 6, ready for your sustainability disclosures — with employee volunteering
             and brand storytelling built in.
           </p>

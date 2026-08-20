@@ -15,13 +15,13 @@ export const Route = createFileRoute("/volunteers")({
       {
         name: "description",
         content:
-          "Contribute your skills to clean-water projects in Ghana, live with local communities and take part in real cultural exchange.",
+          "Contribute your skills to clean-water projects in Nicaragua, live with local communities and take part in real cultural exchange.",
       },
       { property: "og:title", content: "For Volunteers — ImpactBridge" },
       {
         property: "og:description",
         content:
-          "Contribution, learning and cultural exchange on community clean-water projects in Ghana.",
+          "Contribution, learning and cultural exchange on community clean-water projects in Nicaragua.",
       },
     ],
   }),
@@ -50,7 +50,7 @@ const profileFields = [
   { label: "Skills", value: "Water engineering · Borehole & pump systems" },
   { label: "Education", value: "MSc Water & Environmental Engineering" },
   { label: "Professional experience", value: "4 years, rural water supply projects" },
-  { label: "Languages", value: "English (fluent) · Twi (basic)" },
+  { label: "Languages", value: "English (fluent) · Spanish (intermediate)" },
   { label: "Interests", value: "Solar water systems · Community training" },
   { label: "Availability", value: "2–4 weeks, from September" },
 ];

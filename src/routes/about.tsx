@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About ImpactBridge — our vision for community water in Ghana" },
+      { title: "About ImpactBridge — our vision for community water in Nicaragua" },
       {
         name: "description",
         content:
-          "A Ghana where every community can access the clean water, resources, knowledge and people needed to build a healthy future.",
+          "A Nicaragua where every community can access the clean water, resources, knowledge and people needed to build a healthy future.",
       },
       { property: "og:title", content: "About ImpactBridge" },
       {
@@ -46,10 +46,10 @@ function AboutPage() {
           <div>
             <p className="eyebrow">Our vision</p>
             <h1 className="mt-3 font-display text-4xl font-semibold sm:text-5xl">
-              A Ghana where every community can secure its own clean water
+              A Nicaragua where every community can secure its own clean water
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              A Ghana where every community can access the clean water, resources, knowledge and
+              A Nicaragua where every community can access the clean water, resources, knowledge and
               people needed to build a healthy future.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-ink">
@@ -86,7 +86,7 @@ function AboutPage() {
             <h2 className="text-2xl font-semibold sm:text-3xl">Become a partner</h2>
             <p className="mt-2 max-w-lg text-muted-foreground">
               Whether you are an NGO, a company or a skilled volunteer, help fund, build and sustain
-              clean-water projects with communities across Ghana.
+              clean-water projects with communities across Nicaragua.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

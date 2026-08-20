@@ -3,7 +3,7 @@ import { Building2, Droplets, HeartHandshake, Users } from "lucide-react";
 const stats = [
   { icon: Building2, value: "18", label: "Communities", sub: "with a water project" },
   { icon: Users, value: "6,200", label: "People", sub: "with improved water access" },
-  { icon: Droplets, value: "6", label: "Water projects", sub: "across 6 regions of Ghana" },
+  { icon: Droplets, value: "6", label: "Water projects", sub: "across 6 regions of Nicaragua" },
   { icon: HeartHandshake, value: "45", label: "Volunteers", sub: "connected" },
 ];
 
