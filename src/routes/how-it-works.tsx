@@ -6,16 +6,16 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How ImpactBridge works — from local need to working energy system" },
+      { title: "How ImpactBridge works — from local need to clean water" },
       {
         name: "description",
         content:
-          "Communities share their energy needs, ImpactBridge creates the match with solutions, funding and volunteers, and people make it happen.",
+          "Communities share their water needs, ImpactBridge creates the match with solutions, funding and volunteers, and people make it happen.",
       },
       { property: "og:title", content: "How ImpactBridge works" },
       {
         property: "og:description",
-        content: "A three-step process connecting communities, partners and volunteers.",
+        content: "A three-step process connecting communities, funders, partners and volunteers.",
       },
     ],
   }),

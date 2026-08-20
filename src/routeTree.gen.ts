@@ -13,7 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CommunitiesRouteImport } from './routes/communities'
 import { Route as CommunityRouteImport } from './routes/community'
+import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as NgosRouteImport } from './routes/ngos'
 import { Route as VolunteersRouteImport } from './routes/volunteers'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
@@ -38,9 +40,19 @@ const CommunityRoute = CommunityRouteImport.update({
   path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompaniesRoute = CompaniesRouteImport.update({
+  id: '/companies',
+  path: '/companies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NgosRoute = NgosRouteImport.update({
+  id: '/ngos',
+  path: '/ngos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VolunteersRoute = VolunteersRouteImport.update({
@@ -64,7 +76,9 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/communities': typeof CommunitiesRoute
   '/community': typeof CommunityRoute
+  '/companies': typeof CompaniesRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/ngos': typeof NgosRoute
   '/volunteers': typeof VolunteersRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -74,7 +88,9 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/communities': typeof CommunitiesRoute
   '/community': typeof CommunityRoute
+  '/companies': typeof CompaniesRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/ngos': typeof NgosRoute
   '/volunteers': typeof VolunteersRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
   '/projects': typeof ProjectsIndexRoute
@@ -85,7 +101,9 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/communities': typeof CommunitiesRoute
   '/community': typeof CommunityRoute
+  '/companies': typeof CompaniesRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/ngos': typeof NgosRoute
   '/volunteers': typeof VolunteersRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -97,7 +115,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/communities'
     | '/community'
+    | '/companies'
     | '/how-it-works'
+    | '/ngos'
     | '/volunteers'
     | '/projects/$projectId'
     | '/projects/'
@@ -107,7 +127,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/communities'
     | '/community'
+    | '/companies'
     | '/how-it-works'
+    | '/ngos'
     | '/volunteers'
     | '/projects/$projectId'
     | '/projects'
@@ -117,7 +139,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/communities'
     | '/community'
+    | '/companies'
     | '/how-it-works'
+    | '/ngos'
     | '/volunteers'
     | '/projects/$projectId'
     | '/projects/'
@@ -128,7 +152,9 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CommunitiesRoute: typeof CommunitiesRoute
   CommunityRoute: typeof CommunityRoute
+  CompaniesRoute: typeof CompaniesRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  NgosRoute: typeof NgosRoute
   VolunteersRoute: typeof VolunteersRoute
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
@@ -164,11 +190,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/companies': {
+      id: '/companies'
+      path: '/companies'
+      fullPath: '/companies'
+      preLoaderRoute: typeof CompaniesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/how-it-works': {
       id: '/how-it-works'
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ngos': {
+      id: '/ngos'
+      path: '/ngos'
+      fullPath: '/ngos'
+      preLoaderRoute: typeof NgosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/volunteers': {
@@ -200,7 +240,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CommunitiesRoute: CommunitiesRoute,
   CommunityRoute: CommunityRoute,
+  CompaniesRoute: CompaniesRoute,
   HowItWorksRoute: HowItWorksRoute,
+  NgosRoute: NgosRoute,
   VolunteersRoute: VolunteersRoute,
   ProjectsProjectIdRoute: ProjectsProjectIdRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,

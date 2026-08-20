@@ -1,39 +1,47 @@
 import { Link } from "@tanstack/react-router";
-import { Compass, Handshake, HousePlug } from "lucide-react";
+import { Building2, Compass, Droplets, HandCoins } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
 const pathways = [
   {
-    icon: HousePlug,
+    icon: Droplets,
     title: "For Communities",
-    tagline: "Turn your energy needs into a project.",
-    body: "Share information about your community and receive a preliminary energy concept and connections to potential partners.",
+    tagline: "Turn your water problem into a project.",
+    body: "Tell us about your community and get connected to funding, partners and volunteers to build a lasting water solution.",
     cta: "Start a project",
     to: "/communities" as const,
+  },
+  {
+    icon: HandCoins,
+    title: "For NGOs",
+    tagline: "Fund water that communities run.",
+    body: "Back vetted, community-led clean-water projects across Ghana with transparent tracking and field-level reporting.",
+    cta: "Fund a project",
+    to: "/ngos" as const,
+  },
+  {
+    icon: Building2,
+    title: "For Companies",
+    tagline: "Sponsor impact, get ESG reporting.",
+    body: "Direct CSR budget into measurable water projects and receive verified, audit-ready impact reports aligned to SDG 6.",
+    cta: "Explore sponsorship",
+    to: "/companies" as const,
   },
   {
     icon: Compass,
     title: "For Volunteers",
     tagline: "Use your skills. Make a difference.",
-    body: "Discover projects where you can contribute your skills while experiencing local communities and cultures.",
+    body: "Contribute your skills on real clean-water projects while living with and learning from local communities.",
     cta: "Find a project",
     to: "/volunteers" as const,
-  },
-  {
-    icon: Handshake,
-    title: "For Partners",
-    tagline: "Support projects that create lasting impact.",
-    body: "Help finance, develop or implement renewable energy projects in underserved communities.",
-    cta: "Become a partner",
-    to: "/about" as const,
   },
 ];
 
 export function Pathways() {
   return (
     <section className="py-20 sm:py-24">
-      <div className="container-page grid gap-6 md:grid-cols-3">
+      <div className="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {pathways.map(({ icon: Icon, ...p }) => (
           <div key={p.title} className="card-soft card-hover flex flex-col p-7">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-sage">

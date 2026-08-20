@@ -1,10 +1,10 @@
-import { Building2, HeartHandshake, Sun, Users } from "lucide-react";
+import { Building2, Droplets, HeartHandshake, Users } from "lucide-react";
 
 const stats = [
-  { icon: Building2, value: "12", label: "Communities", sub: "supported" },
-  { icon: Users, value: "1,850", label: "People", sub: "with improved energy access" },
-  { icon: Sun, value: "8", label: "Projects", sub: "in development" },
-  { icon: HeartHandshake, value: "42", label: "Volunteers", sub: "connected" },
+  { icon: Building2, value: "18", label: "Communities", sub: "with a water project" },
+  { icon: Users, value: "6,200", label: "People", sub: "with improved water access" },
+  { icon: Droplets, value: "6", label: "Water projects", sub: "across 6 regions of Ghana" },
+  { icon: HeartHandshake, value: "45", label: "Volunteers", sub: "connected" },
 ];
 
 export function Impact() {

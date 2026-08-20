@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ImpactBridge — Energy access. Human connection. Real impact." },
+      { title: "ImpactBridge — Clean water. Human connection. Real impact." },
       {
         name: "description",
         content:
-          "ImpactBridge connects rural communities with renewable energy solutions, funding, partners and skilled volunteers.",
+          "ImpactBridge connects rural communities in Ghana with clean-water solutions, funding, partners and skilled volunteers.",
       },
       { name: "author", content: "ImpactBridge" },
       { property: "og:type", content: "website" },

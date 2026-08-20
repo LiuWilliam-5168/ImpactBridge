@@ -12,12 +12,13 @@ export const Route = createFileRoute("/volunteers")({
       {
         name: "description",
         content:
-          "Contribute your skills to renewable energy projects, live with local communities and take part in real cultural exchange.",
+          "Contribute your skills to clean-water projects in Ghana, live with local communities and take part in real cultural exchange.",
       },
       { property: "og:title", content: "For Volunteers — ImpactBridge" },
       {
         property: "og:description",
-        content: "Contribution, learning and cultural exchange on community energy projects.",
+        content:
+          "Contribution, learning and cultural exchange on community clean-water projects in Ghana.",
       },
     ],
   }),
@@ -33,7 +34,7 @@ const pillars = [
   {
     icon: BookOpen,
     title: "Learning",
-    body: "Build field experience in off-grid energy systems alongside local technicians.",
+    body: "Build field experience in rural water systems alongside local technicians and engineers.",
   },
   {
     icon: Globe2,
@@ -43,11 +44,11 @@ const pillars = [
 ];
 
 const profileFields = [
-  { label: "Skills", value: "Electrical engineering · Solar PV design" },
-  { label: "Education", value: "MSc Renewable Energy Systems" },
-  { label: "Professional experience", value: "4 years, distributed energy projects" },
-  { label: "Languages", value: "English (fluent) · Swahili (basic)" },
-  { label: "Interests", value: "Off-grid microgrids · Community training" },
+  { label: "Skills", value: "Water engineering · Borehole & pump systems" },
+  { label: "Education", value: "MSc Water & Environmental Engineering" },
+  { label: "Professional experience", value: "4 years, rural water supply projects" },
+  { label: "Languages", value: "English (fluent) · Twi (basic)" },
+  { label: "Interests", value: "Solar water systems · Community training" },
   { label: "Availability", value: "2–4 weeks, from September" },
 ];
 
@@ -64,7 +65,7 @@ function VolunteersPage() {
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
               ImpactBridge is not simply a volunteer marketplace. Every placement is tied to a real
-              energy project, a real host community and a defined contribution.
+              clean-water project, a real host community and a defined contribution.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full">
@@ -116,9 +117,11 @@ function VolunteersPage() {
                   className="h-40 w-full object-cover"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="text-xs text-muted-foreground">{p.country}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {p.region}, {p.country}
+                  </p>
                   <h3 className="mt-1.5 text-lg font-semibold">
-                    {p.name} — {p.country}
+                    {p.name} — {p.region}
                   </h3>
                   <p className="mt-1 text-sm text-primary">{p.duration} experience</p>
                   <p className="mt-3 text-sm text-muted-foreground">

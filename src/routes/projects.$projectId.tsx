@@ -4,7 +4,7 @@ import { toast } from "sonner";
 
 import { FundingBar } from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
-import { formatEuro, fundingPercent, getProject } from "@/lib/projects";
+import { formatUsd, fundingPercent, getProject } from "@/lib/projects";
 
 export const Route = createFileRoute("/projects/$projectId")({
   loader: ({ params }) => {
@@ -15,7 +15,10 @@ export const Route = createFileRoute("/projects/$projectId")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Project unavailable | ImpactBridge" }, { name: "robots", content: "noindex" }],
+        meta: [
+          { title: "Project unavailable | ImpactBridge" },
+          { name: "robots", content: "noindex" },
+        ],
       };
     }
     const { project } = loaderData;
@@ -91,7 +94,7 @@ function ProjectDetail() {
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   <div className="card-soft p-5">
                     <p className="eyebrow">Funding</p>
-                    <p className="mt-2 text-2xl font-semibold">{formatEuro(project.fundingGoal)}</p>
+                    <p className="mt-2 text-2xl font-semibold">{formatUsd(project.fundingGoal)}</p>
                   </div>
                   <div className="card-soft p-5">
                     <p className="eyebrow">Volunteers</p>
@@ -137,7 +140,7 @@ function ProjectDetail() {
                 <FundingBar percent={percent} />
               </div>
               <p className="mt-3 text-sm text-muted-foreground">
-                {formatEuro(project.fundingRaised)} raised of {formatEuro(project.fundingGoal)}
+                {formatUsd(project.fundingRaised)} raised of {formatUsd(project.fundingGoal)}
               </p>
 
               <dl className="mt-6 space-y-3 border-t border-border pt-6 text-sm">
@@ -165,7 +168,9 @@ function ProjectDetail() {
                 <Button
                   className="w-full rounded-full"
                   size="lg"
-                  onClick={() => toast.success("Thank you — a funding partner form would open here")}
+                  onClick={() =>
+                    toast.success("Thank you — a funding partner form would open here")
+                  }
                 >
                   Support this project
                 </Button>

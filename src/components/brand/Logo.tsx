@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** Minimal abstract bridge arc combined with a leaf. Works at favicon size. */
+/** Minimal abstract bridge arc combined with a water drop. Works at favicon size. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
@@ -17,11 +17,16 @@ export function LogoMark({ className }: { className?: string }) {
       />
       <path d="M9 22v5M23 22v5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
       <path
-        d="M16 14c0-5 3.5-8.5 8-9-.5 5.5-3.5 9-8 9Z"
+        d="M16 3.5c0 0-5 5.8-5 9.2a5 5 0 0 0 10 0c0-3.4-5-9.2-5-9.2Z"
         fill="currentColor"
         fillOpacity="0.9"
       />
-      <path d="M16 14c0-3 1.5-6 4-8" stroke="var(--color-card)" strokeWidth="1.2" strokeLinecap="round" />
+      <path
+        d="M13.6 12.8a2.6 2.6 0 0 0 1.9 2.4"
+        stroke="var(--color-card)"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

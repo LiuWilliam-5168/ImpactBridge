@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Clock, MapPin, Users } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { fundingPercent, formatEuro, type Project } from "@/lib/projects";
+import { fundingPercent, formatUsd, type Project } from "@/lib/projects";
 
 export function FundingBar({ percent }: { percent: number }) {
   return (
@@ -31,13 +31,13 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
           <MapPin className="h-3.5 w-3.5" />
-          {project.country}
+          {project.region}, {project.country}
           <span className="mx-1 text-border">·</span>
           {project.type}
         </div>
 
         <h3 className="mt-2 text-lg font-semibold">
-          {project.name} — {project.country}
+          {project.name} — {project.region}
         </h3>
         <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{project.challenge}</p>
 
@@ -56,7 +56,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <FundingBar percent={percent} />
           <div className="mt-2 flex justify-between text-xs text-muted-foreground">
             <span className="font-medium text-primary">{percent}% funded</span>
-            <span>{formatEuro(project.fundingGoal)} needed</span>
+            <span>{formatUsd(project.fundingGoal)} needed</span>
           </div>
         </div>
 

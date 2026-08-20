@@ -4,32 +4,31 @@ const steps = [
     title: "Communities share their needs",
     intro: "Communities or NGOs provide information about:",
     items: [
-      "Location",
-      "Population",
-      "Energy needs",
+      "Location & region",
+      "Population served",
+      "Current water source",
+      "Main water needs",
       "Existing infrastructure",
-      "Local resources",
-      "Local technical skills",
+      "Local skills",
     ],
   },
   {
     number: "02",
     title: "ImpactBridge creates the match",
-    intro:
-      "Our platform generates a preliminary project concept and helps connect communities with:",
+    intro: "We shape a viable water project and connect the community with:",
     items: [
-      "Renewable energy solutions",
-      "Funding opportunities",
-      "NGOs",
+      "Clean-water solutions",
+      "Funding from NGOs",
+      "Corporate sponsors",
       "Technical partners",
-      "Volunteers",
+      "Skilled volunteers",
     ],
   },
   {
     number: "03",
     title: "People make it happen",
     intro:
-      "Communities, partners and volunteers work together to create sustainable local energy solutions.",
+      "Communities, funders, partners and volunteers work together to build a lasting local water solution.",
     items: [],
   },
 ];
@@ -41,7 +40,7 @@ export function HowItWorks() {
         <div className="max-w-2xl">
           <p className="eyebrow">How it works</p>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
-            Three steps from local need to working energy system
+            Three steps from local need to clean water flowing
           </h2>
         </div>
 

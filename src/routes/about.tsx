@@ -7,16 +7,16 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About ImpactBridge — our vision for community energy" },
+      { title: "About ImpactBridge — our vision for community water in Ghana" },
       {
         name: "description",
         content:
-          "A world where every community can access the energy, resources, knowledge and people needed to build a sustainable future.",
+          "A Ghana where every community can access the clean water, resources, knowledge and people needed to build a healthy future.",
       },
       { property: "og:title", content: "About ImpactBridge" },
       {
         property: "og:description",
-        content: "More than energy infrastructure — ImpactBridge is about connecting people.",
+        content: "More than boreholes and pipes — ImpactBridge is about connecting people.",
       },
     ],
   }),
@@ -30,11 +30,11 @@ const principles = [
   },
   {
     title: "Technically honest",
-    body: "Our AI assessment gives an orientation concept, clearly labelled as preliminary. Engineering follows a site survey.",
+    body: "Projects are scoped realistically and confirmed by a site survey before engineering. We do not over-promise on water.",
   },
   {
     title: "Built on relationships",
-    body: "Funders, partners and volunteers stay connected to the community long after commissioning.",
+    body: "Funders, sponsors, partners and volunteers stay connected to the community long after the water is flowing.",
   },
 ];
 
@@ -46,14 +46,14 @@ function AboutPage() {
           <div>
             <p className="eyebrow">Our vision</p>
             <h1 className="mt-3 font-display text-4xl font-semibold sm:text-5xl">
-              A world where every community can build its own energy future
+              A Ghana where every community can secure its own clean water
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              A world where every community can access the energy, resources, knowledge and people
-              needed to build a sustainable future.
+              A Ghana where every community can access the clean water, resources, knowledge and
+              people needed to build a healthy future.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-ink">
-              ImpactBridge is about more than energy infrastructure. It is about connecting people.
+              ImpactBridge is about more than boreholes and pipes. It is about connecting people.
             </p>
           </div>
           <img
@@ -85,16 +85,16 @@ function AboutPage() {
           <div>
             <h2 className="text-2xl font-semibold sm:text-3xl">Become a partner</h2>
             <p className="mt-2 max-w-lg text-muted-foreground">
-              Help finance, develop or implement renewable energy projects in underserved
-              communities.
+              Whether you are an NGO, a company or a skilled volunteer, help fund, build and sustain
+              clean-water projects with communities across Ghana.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Button asChild size="lg" className="rounded-full">
-              <Link to="/projects">Review open projects</Link>
+              <Link to="/ngos">Fund as an NGO</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full">
-              <Link to="/community">Meet the community</Link>
+              <Link to="/companies">Sponsor as a company</Link>
             </Button>
           </div>
         </div>

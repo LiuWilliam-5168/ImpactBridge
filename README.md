@@ -60,14 +60,14 @@ The dev server runs at **http://localhost:5173**.
 
 ## Scripts
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the Vite dev server |
-| `npm run build` | Production build |
-| `npm run build:dev` | Build in development mode |
-| `npm run preview` | Preview a production build locally |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format the codebase with Prettier |
+| Command             | Description                        |
+| ------------------- | ---------------------------------- |
+| `npm run dev`       | Start the Vite dev server          |
+| `npm run build`     | Production build                   |
+| `npm run build:dev` | Build in development mode          |
+| `npm run preview`   | Preview a production build locally |
+| `npm run lint`      | Run ESLint                         |
+| `npm run format`    | Format the codebase with Prettier  |
 
 ## Project structure
 
@@ -106,8 +106,8 @@ Routing is **file-based** — every file in `src/routes/` maps to a URL, and
 
 The prototype is built around two journeys:
 
-1. **Community → project concept:** Home → *Start a community project* → enter community
+1. **Community → project concept:** Home → _Start a community project_ → enter community
    information → generate a preliminary energy solution → view the recommended project →
    find funding / volunteers.
-2. **Volunteer → contribution:** Home → *Explore projects* → select a project → view details
+2. **Volunteer → contribution:** Home → _Explore projects_ → select a project → view details
    → apply as a volunteer.

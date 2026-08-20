@@ -3,8 +3,8 @@ import { Camera, MessageCircle, Plus, Star } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import kenya from "@/assets/project-kenya.jpg";
-import nepal from "@/assets/project-nepal.jpg";
+import upperEast from "@/assets/project-kenya.jpg";
+import western from "@/assets/project-peru.jpg";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { projects } from "@/lib/projects";
@@ -16,12 +16,13 @@ export const Route = createFileRoute("/community")({
       {
         name: "description",
         content:
-          "Follow projects, read field updates from communities and volunteers, and connect with people working on energy access.",
+          "Follow projects, read field updates from communities and volunteers, and connect with people working on clean water in Ghana.",
       },
       { property: "og:title", content: "Impact community — ImpactBridge" },
       {
         property: "og:description",
-        content: "A professional community for people building energy access together.",
+        content:
+          "A professional community for people building clean-water access in Ghana together.",
       },
     ],
   }),
@@ -30,38 +31,38 @@ export const Route = createFileRoute("/community")({
 
 const feed = [
   {
-    author: "Amina W.",
-    role: "Community lead · Kijiji, Kenya",
+    author: "Abena O.",
+    role: "Community lead · Zorko, Upper East",
     time: "2 days ago",
-    body: "Distribution poles are up along the eastern path. The school will be the first connection point next week — the committee voted on the tariff yesterday.",
-    image: kenya,
-    likes: 24,
-    comments: 6,
+    body: "The overhead tank is up and the first three standpipes are flowing. The school will be connected next week — the water committee agreed the tariff yesterday.",
+    image: upperEast,
+    likes: 32,
+    comments: 8,
   },
   {
-    author: "Lars M.",
-    role: "Volunteer · Hydro systems",
+    author: "Tom H.",
+    role: "Volunteer · Water treatment",
     time: "5 days ago",
-    body: "Two weeks in Simkhola Valley. Spent the mornings on intake works with the build team and the afternoons teaching the operator group how to read the monitoring dashboard.",
-    image: nepal,
-    likes: 41,
-    comments: 11,
+    body: "Two weeks on the Ankobra treatment unit near Prestea. Mornings commissioning the filtration stages, afternoons training operators to log turbidity — turbidity is already down from 9,000 to under 5 NTU at the tap.",
+    image: western,
+    likes: 47,
+    comments: 13,
   },
   {
-    author: "Thabo R.",
-    role: "Community lead · Ha Sekake, Lesotho",
+    author: "Yaw M.",
+    role: "Community lead · Nabogu, Northern",
     time: "1 week ago",
-    body: "The clinic fridge has held temperature for seven straight days. Sharing our winter load data with anyone sizing a highland hybrid system.",
-    likes: 18,
-    comments: 4,
+    body: "Two of the three new handpumps are drilled and the school handwashing stations are in. Queues at dawn are already shorter. Sharing our caretaker training notes with anyone starting a WASH programme.",
+    likes: 21,
+    comments: 5,
   },
 ];
 
 const volunteers = [
-  { name: "Sofia D.", skill: "Solar installation", place: "Lisbon" },
-  { name: "Kwame A.", skill: "Electrical engineering", place: "Accra" },
+  { name: "Sofia D.", skill: "Water quality testing", place: "Lisbon" },
+  { name: "Kwame A.", skill: "Borehole & pump systems", place: "Accra" },
   { name: "Mira T.", skill: "Project management", place: "Helsinki" },
-  { name: "Diego S.", skill: "Community engagement", place: "Lima" },
+  { name: "Diego S.", skill: "WASH education", place: "Lima" },
 ];
 
 function CommunityPage() {
@@ -150,7 +151,7 @@ function CommunityPage() {
                     <li key={p.id} className="flex items-center justify-between gap-3">
                       <div>
                         <p className="text-sm font-medium">{p.name}</p>
-                        <p className="text-xs text-muted-foreground">{p.country}</p>
+                        <p className="text-xs text-muted-foreground">{p.region}</p>
                       </div>
                       <Button
                         size="sm"

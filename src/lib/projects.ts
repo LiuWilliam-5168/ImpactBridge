@@ -1,7 +1,12 @@
-import kenya from "@/assets/project-kenya.jpg";
-import lesotho from "@/assets/project-lesotho.jpg";
-import nepal from "@/assets/project-nepal.jpg";
-import peru from "@/assets/project-peru.jpg";
+import upperEast from "@/assets/project-kenya.jpg";
+import western from "@/assets/project-peru.jpg";
+import northern from "@/assets/project-lesotho.jpg";
+import volta from "@/assets/project-nepal.jpg";
+import eastern from "@/assets/hero-community.jpg";
+import central from "@/assets/volunteer-exchange.jpg";
+
+// NOTE: imagery is placeholder — these files are reused from the earlier build and
+// should be replaced with real Ghana clean-water photography.
 
 export type VolunteerRole = {
   title: string;
@@ -14,6 +19,7 @@ export type Project = {
   name: string;
   community: string;
   country: string;
+  /** Ghana administrative region — used by the location filter. */
   region: string;
   type: string;
   image: string;
@@ -29,7 +35,7 @@ export type Project = {
   duration: string;
   status: "Seeking funding" | "Fully funded" | "In implementation";
   roles: VolunteerRole[];
-  /** Rough map position in percent of the map viewport. */
+  /** Rough map position in percent of the Ghana map viewport. */
   map: { x: number; y: number };
   experience: {
     accommodation: string;
@@ -41,167 +47,269 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "solar-microgrid-kenya",
-    name: "Solar Microgrid",
-    community: "Kijiji Community",
-    country: "Kenya",
-    region: "Africa",
-    type: "Solar microgrid",
-    image: kenya,
-    households: 120,
-    people: 500,
+    id: "solar-borehole-upper-east",
+    name: "Solar Borehole & Standpipe Network",
+    community: "Zorko Community",
+    country: "Ghana",
+    region: "Upper East",
+    type: "Solar borehole",
+    image: upperEast,
+    households: 140,
+    people: 620,
     challenge:
-      "500 people currently have limited access to reliable electricity. The school closes at dusk and the health centre runs a diesel generator for a few hours each evening.",
+      "620 people rely on a seasonal dam and hand-dug wells that run dry from December to April. Women and girls walk up to two hours a day to fetch water, and the primary school has no safe drinking source.",
     solution:
-      "Solar PV + battery storage system serving households and essential community facilities, operated by a locally trained technical team.",
-    solutionShort: "Solar PV + battery microgrid",
-    fundingGoal: 40000,
-    fundingRaised: 28000,
+      "A solar-powered mechanised borehole feeding an overhead tank and a network of standpipes serving households, the school and the clinic, run by a trained community water committee.",
+    solutionShort: "Solar borehole + standpipes",
+    fundingGoal: 48000,
+    fundingRaised: 31000,
     volunteersNeeded: 3,
-    skills: ["Solar installation", "Electrical engineering", "Project management", "Community engagement"],
+    skills: ["Hydrogeology", "Solar pump installation", "Plumbing", "Community mobilization"],
     duration: "6 months",
     status: "Seeking funding",
     roles: [
       {
-        title: "Solar Energy Volunteer",
+        title: "Solar Pump Volunteer",
         duration: "2–4 weeks",
-        description: "Support panel mounting, wiring and commissioning alongside local electricians.",
+        description:
+          "Support pump sizing, panel mounting and commissioning with local technicians.",
       },
       {
-        title: "Electrical Engineering Volunteer",
+        title: "Hydrogeology Volunteer",
         duration: "2 weeks",
-        description: "Review the distribution design and support safety testing of the microgrid.",
+        description: "Review the borehole yield test and advise on the distribution design.",
       },
       {
-        title: "Community Engagement",
+        title: "Community Mobilization",
         duration: "1–2 weeks",
-        description: "Run household workshops on energy use, tariffs and maintenance routines.",
+        description:
+          "Set up the water committee, tariff model and maintenance routine with residents.",
       },
     ],
-    map: { x: 57.5, y: 58 },
+    map: { x: 55, y: 12 },
     experience: {
-      accommodation: "Homestay with a host family in the village, shared meals included.",
-      activities: ["Village energy committee meetings", "School science afternoons", "Weekly market day"],
-      culture: "Learn Swahili basics, cook with your host family, join community football evenings.",
+      accommodation: "Homestay with a host family in the community, shared meals included.",
+      activities: [
+        "Water committee meetings",
+        "School hygiene afternoons",
+        "Weekly market day in Bolga",
+      ],
+      culture:
+        "Learn basic Frafra greetings, cook with your host family, join community drumming evenings.",
       volunteers: 3,
     },
   },
   {
-    id: "renewable-energy-lesotho",
-    name: "Highland Renewable Energy Project",
-    community: "Ha Sekake",
-    country: "Lesotho",
-    region: "Africa",
-    type: "Hybrid solar + wind",
-    image: lesotho,
-    households: 80,
-    people: 340,
+    id: "river-treatment-western",
+    name: "River Water Treatment Plant",
+    community: "Prestea Riverside",
+    country: "Ghana",
+    region: "Western",
+    type: "River water treatment",
+    image: western,
+    households: 90,
+    people: 410,
     challenge:
-      "Highland households rely on paraffin and candles. Winter nights are long and the local clinic cannot store vaccines reliably.",
+      "Illegal gold mining (galamsey) upstream has turned the Ankobra River muddy and laden with mercury. Turbidity spikes far above treatable limits and waterborne illness is rising, yet families have no alternative source.",
     solution:
-      "Hybrid solar and small wind system with battery storage for the clinic, school and surrounding homesteads.",
-    solutionShort: "Hybrid solar + wind with storage",
-    fundingGoal: 26000,
-    fundingRaised: 11500,
+      "A community-scale treatment unit — sedimentation, filtration and disinfection sized for polluted river water — plus a water-quality monitoring routine handed over to local operators.",
+    solutionShort: "River treatment + monitoring",
+    fundingGoal: 62000,
+    fundingRaised: 24500,
     volunteersNeeded: 2,
-    skills: ["Energy systems", "Electrical engineering", "Data & monitoring"],
-    duration: "2-week experience",
+    skills: ["Water treatment engineering", "Water quality testing", "Civil engineering"],
+    duration: "8 months",
     status: "Seeking funding",
     roles: [
       {
-        title: "Energy Systems Volunteer",
-        duration: "2 weeks",
-        description: "Size the hybrid system and set up monitoring for the first winter season.",
+        title: "Water Treatment Volunteer",
+        duration: "3–4 weeks",
+        description: "Commission the filtration and dosing stages and train local operators.",
       },
       {
-        title: "Electrical Engineering Volunteer",
+        title: "Water Quality Volunteer",
         duration: "2 weeks",
-        description: "Support installation and safety inspection of clinic circuits.",
+        description: "Set up turbidity and heavy-metal testing and a simple record-keeping system.",
       },
     ],
-    map: { x: 55.5, y: 74 },
+    map: { x: 33, y: 82 },
     experience: {
-      accommodation: "Guesthouse rooms next to the community hall.",
-      activities: ["Pony trekking with local herders", "Blanket weaving workshop", "Clinic open days"],
-      culture: "Sesotho language evenings, traditional music, shared cooking over open fire.",
+      accommodation: "Guesthouse rooms near the community centre.",
+      activities: ["River monitoring walks", "Clinic health days", "Cocoa farm visits"],
+      culture:
+        "Nzema and Twi language evenings, shared cooking, weekend football with the build team.",
       volunteers: 2,
     },
   },
   {
-    id: "micro-hydro-nepal",
-    name: "Micro-Hydro for Two Villages",
-    community: "Simkhola Valley",
-    country: "Nepal",
-    region: "Asia",
-    type: "Micro-hydro",
-    image: nepal,
-    households: 210,
-    people: 900,
+    id: "handpump-wash-northern",
+    name: "Handpump Boreholes & WASH Program",
+    community: "Nabogu Cluster",
+    country: "Ghana",
+    region: "Northern",
+    type: "Handpump borehole",
+    image: northern,
+    households: 260,
+    people: 1150,
     challenge:
-      "Two mountain villages are far from the national grid. Grain milling is done by hand and children study by kerosene lamp.",
+      "Four neighbouring villages share two failing handpumps. Queues start before dawn and children miss school. Open-water use keeps diarrhoeal disease high through the dry season.",
     solution:
-      "A 35 kW run-of-river micro-hydro plant with a small distribution network and a community-run maintenance fund.",
-    solutionShort: "35 kW run-of-river micro-hydro",
-    fundingGoal: 65000,
-    fundingRaised: 58500,
+      "Three new handpump boreholes across the cluster paired with a school WASH programme — hygiene education, handwashing stations and locally trained pump caretakers.",
+    solutionShort: "Handpump boreholes + WASH",
+    fundingGoal: 38000,
+    fundingRaised: 30000,
     volunteersNeeded: 4,
-    skills: ["Civil engineering", "Hydro systems", "Project management", "Training & education"],
-    duration: "12 months",
+    skills: ["Borehole drilling", "WASH education", "Community health", "Project management"],
+    duration: "10 months",
     status: "In implementation",
     roles: [
       {
-        title: "Hydro Systems Volunteer",
+        title: "Drilling Supervision Volunteer",
         duration: "3–4 weeks",
-        description: "Support intake and turbine commissioning with the local build team.",
+        description:
+          "Support siting, drilling supervision and pump installation with the local rig team.",
       },
       {
-        title: "Training & Education Volunteer",
+        title: "WASH Education Volunteer",
         duration: "2 weeks",
-        description: "Co-design the operator training programme with the village committee.",
+        description: "Co-deliver the school hygiene curriculum and set up handwashing stations.",
       },
     ],
-    map: { x: 70, y: 45 },
+    map: { x: 46, y: 32 },
     experience: {
-      accommodation: "Village lodge with shared rooms and home-cooked meals.",
-      activities: ["Valley trekking", "Festival preparations", "School energy club"],
-      culture: "Nepali language practice, momo cooking, tea house evenings with the build team.",
+      accommodation: "Shared rooms in the community guesthouse, home-cooked meals.",
+      activities: ["School hygiene clubs", "Caretaker training", "Shea butter cooperative visit"],
+      culture: "Dagbani language practice, drumming and dance, communal evening meals.",
       volunteers: 4,
     },
   },
   {
-    id: "clinic-solar-peru",
-    name: "Andean Clinic Solar Upgrade",
-    community: "Comunidad de Quillabamba",
-    country: "Peru",
-    region: "South America",
-    type: "Solar for facilities",
-    image: peru,
-    households: 60,
-    people: 260,
+    id: "rainwater-schools-volta",
+    name: "Rainwater Harvesting for Schools",
+    community: "Have & Anfoega Schools",
+    country: "Ghana",
+    region: "Volta",
+    type: "Rainwater harvesting",
+    image: volta,
+    households: 70,
+    people: 480,
     challenge:
-      "The rural clinic loses power several times a week, interrupting cold chain storage and evening consultations.",
+      "Two hillside schools sit far from any borehole. In the dry months pupils carry water from home or go without, and the schools cannot run a reliable handwashing routine.",
     solution:
-      "Rooftop solar with battery backup for the clinic plus efficient lighting for the adjoining school.",
-    solutionShort: "Rooftop solar + battery backup",
-    fundingGoal: 18000,
-    fundingRaised: 18000,
-    volunteersNeeded: 1,
-    skills: ["Solar installation", "Health facility energy", "Spanish"],
-    duration: "4 months",
+      "Rooftop rainwater harvesting with ferrocement storage tanks and simple point-of-use filtration at each school, sized to bridge the dry season.",
+    solutionShort: "Rooftop rainwater + storage",
+    fundingGoal: 22000,
+    fundingRaised: 8500,
+    volunteersNeeded: 2,
+    skills: ["Civil engineering", "Plumbing", "WASH education"],
+    duration: "5 months",
+    status: "Seeking funding",
+    roles: [
+      {
+        title: "Construction Volunteer",
+        duration: "2–3 weeks",
+        description:
+          "Build guttering, first-flush diverters and ferrocement tanks with local masons.",
+      },
+      {
+        title: "WASH Education Volunteer",
+        duration: "1–2 weeks",
+        description: "Run pupil hygiene sessions and set up the school water-management group.",
+      },
+    ],
+    map: { x: 72, y: 55 },
+    experience: {
+      accommodation: "Homestay in the village, walking distance to the schools.",
+      activities: ["School build days", "Kente weaving workshop", "Mountain Afadja hike"],
+      culture: "Ewe language evenings, shared cooking, community durbar celebrations.",
+      volunteers: 2,
+    },
+  },
+  {
+    id: "piped-network-eastern",
+    name: "Small-Town Piped Water Expansion",
+    community: "Kyebi Township",
+    country: "Ghana",
+    region: "Eastern",
+    type: "Piped network",
+    image: eastern,
+    households: 320,
+    people: 1400,
+    challenge:
+      "The town's small piped scheme reaches only the centre. Outer neighbourhoods buy from vendors at up to ten times the tariff, and the Birim River nearby is degraded by upstream mining.",
+    solution:
+      "Extend the piped network with new mains, metered household connections and two managed water kiosks, keeping the community water board financially self-sustaining.",
+    solutionShort: "Piped mains + kiosks",
+    fundingGoal: 54000,
+    fundingRaised: 54000,
+    volunteersNeeded: 2,
+    skills: ["Civil engineering", "Project management", "Water quality testing"],
+    duration: "12 months",
     status: "Fully funded",
     roles: [
       {
-        title: "Solar Installation Volunteer",
+        title: "Network Engineering Volunteer",
+        duration: "3–4 weeks",
+        description:
+          "Support pipe-laying supervision, metering and pressure testing with the water board.",
+      },
+      {
+        title: "Water Quality Volunteer",
         duration: "2 weeks",
-        description: "Install rooftop arrays and hand over maintenance routines to clinic staff.",
+        description: "Establish routine sampling at kiosks and household taps.",
       },
     ],
-    map: { x: 29, y: 68 },
+    map: { x: 58, y: 68 },
     experience: {
-      accommodation: "Family homestay in the valley, 20 minutes from the clinic.",
-      activities: ["Clinic health days", "Weekly community assembly", "Highland farming"],
-      culture: "Spanish and Quechua exchange, weaving cooperative visits, shared Sunday meals.",
-      volunteers: 1,
+      accommodation: "Small guesthouse in the township centre.",
+      activities: ["Water board meetings", "Kiosk open days", "Okyeman heritage sites"],
+      culture: "Twi language practice, shared meals, weekend visits to the Atewa forest edge.",
+      volunteers: 2,
+    },
+  },
+  {
+    id: "solar-kiosks-central",
+    name: "Solar Filtration Water Kiosks",
+    community: "Gomoa Peri-Urban",
+    country: "Ghana",
+    region: "Central",
+    type: "Water kiosk",
+    image: central,
+    households: 180,
+    people: 800,
+    challenge:
+      "A fast-growing peri-urban settlement has no piped supply. Households rely on sachet water and unregulated tanker vendors, spending a large share of income on water of uncertain quality.",
+    solution:
+      "Solar-powered filtration kiosks dispensing affordable, tested water, run as small community enterprises that fund their own maintenance and refill.",
+    solutionShort: "Solar filtration kiosks",
+    fundingGoal: 30000,
+    fundingRaised: 12000,
+    volunteersNeeded: 2,
+    skills: ["Solar pump installation", "Water quality testing", "Community mobilization"],
+    duration: "6 months",
+    status: "Seeking funding",
+    roles: [
+      {
+        title: "Solar & Filtration Volunteer",
+        duration: "2–3 weeks",
+        description: "Install the solar array and filtration skid and train kiosk operators.",
+      },
+      {
+        title: "Enterprise Setup Volunteer",
+        duration: "1–2 weeks",
+        description: "Help set up pricing, bookkeeping and the maintenance fund with operators.",
+      },
+    ],
+    map: { x: 52, y: 84 },
+    experience: {
+      accommodation: "Homestay with a host family, 15 minutes from the kiosks.",
+      activities: [
+        "Kiosk enterprise training",
+        "Community health days",
+        "Coastal Cape Coast weekend",
+      ],
+      culture: "Fante language exchange, shared cooking, community film nights.",
+      volunteers: 2,
     },
   },
 ];
@@ -214,20 +322,32 @@ export function fundingPercent(p: Project): number {
   return Math.round((p.fundingRaised / p.fundingGoal) * 100);
 }
 
-export function formatEuro(value: number): string {
-  return `€${value.toLocaleString("en-US")}`;
+export function formatUsd(value: number): string {
+  return `$${value.toLocaleString("en-US")}`;
 }
 
 export const filterOptions = {
-  location: ["All locations", "Africa", "Asia", "South America"],
-  type: ["All types", "Solar microgrid", "Hybrid solar + wind", "Micro-hydro", "Solar for facilities"],
+  location: ["All regions", "Upper East", "Northern", "Volta", "Eastern", "Western", "Central"],
+  type: [
+    "All types",
+    "Solar borehole",
+    "Handpump borehole",
+    "River water treatment",
+    "Rainwater harvesting",
+    "Piped network",
+    "Water kiosk",
+  ],
   skills: [
     "All skills",
-    "Solar installation",
-    "Electrical engineering",
-    "Energy systems",
+    "Hydrogeology",
+    "Solar pump installation",
+    "Borehole drilling",
+    "Water treatment engineering",
+    "Water quality testing",
+    "WASH education",
+    "Civil engineering",
+    "Community mobilization",
     "Project management",
-    "Community engagement",
   ],
   funding: ["Any status", "Seeking funding", "In implementation", "Fully funded"],
   duration: ["Any duration", "Under 6 months", "6–12 months", "Over 12 months"],
