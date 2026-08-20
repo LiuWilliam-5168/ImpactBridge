@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BadgeCheck, Check, Droplets, FileText, Megaphone, Users } from "lucide-react";
+import { BadgeCheck, Check, Droplets, FileText, Megaphone, Sparkles, Users } from "lucide-react";
 import { toast } from "sonner";
 
+import { AssistantWorkspace } from "@/components/assistant/AssistantWorkspace";
 import { Button } from "@/components/ui/button";
+import { companiesEngine, type CompanyRec } from "@/lib/assistant";
 
 export const Route = createFileRoute("/companies")({
   head: () => ({
@@ -111,6 +113,64 @@ const tiers = [
   },
 ];
 
+function Recommendation({ rec }: { rec: CompanyRec }) {
+  if (!rec.tier) {
+    return (
+      <div className="flex h-full min-h-56 items-center justify-center text-center">
+        <p className="max-w-xs text-sm text-muted-foreground">
+          Describe your CSR goals above and your recommended package will appear here.
+        </p>
+      </div>
+    );
+  }
+
+  const tier = tiers.find((t) => t.name === rec.tier);
+
+  return (
+    <div>
+      <div className="rounded-2xl border border-primary/40 bg-sage/40 p-5">
+        <p className="flex items-center gap-2 text-xs font-medium text-primary">
+          <Sparkles className="h-3.5 w-3.5" /> Recommended package
+        </p>
+        <div className="mt-2 flex items-baseline justify-between gap-3">
+          <h3 className="text-xl font-semibold">{rec.tier}</h3>
+          {tier && <span className="font-display text-lg font-semibold">{tier.price}</span>}
+        </div>
+        {tier && <p className="mt-1 text-sm text-muted-foreground">{tier.tagline}</p>}
+      </div>
+
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{rec.rationale}</p>
+
+      {tier && (
+        <ul className="mt-4 space-y-2 text-sm">
+          {tier.features.map((f) => (
+            <li key={f} className="flex items-start gap-2 text-muted-foreground">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              {f}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {rec.regions.length > 0 && (
+        <div className="mt-5">
+          <p className="eyebrow">Suggested regions</p>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {rec.regions.map((r) => (
+              <span
+                key={r}
+                className="rounded-full bg-secondary px-2.5 py-1 text-[11px] text-secondary-foreground"
+              >
+                {r}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function CompaniesPage() {
   const requestPackage = () =>
     toast.success("Thanks — we'll send an ESG sponsorship package and set up a call.");
@@ -210,6 +270,19 @@ function CompaniesPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <div className="container-page">
+          <AssistantWorkspace
+            eyebrow="ESG assistant"
+            title="Find the right package for your goals"
+            lead="Tell the assistant your budget, CSR goals and reporting needs, and it will recommend the ESG sponsorship package that fits best — then refine it as you add detail."
+            engine={companiesEngine}
+            outputTitle="Recommended for you"
+            renderOutput={(output) => <Recommendation rec={output} />}
+          />
         </div>
       </section>
 

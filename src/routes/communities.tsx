@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FileText, Handshake, Users } from "lucide-react";
-import { useState } from "react";
 import { toast } from "sonner";
 
 import heroImage from "@/assets/hero-community.jpg";
+import { AssistantWorkspace } from "@/components/assistant/AssistantWorkspace";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { communitiesEngine, waterSources, type CommunityIntake } from "@/lib/assistant";
 import { filterOptions } from "@/lib/projects";
 
 export const Route = createFileRoute("/communities")({
@@ -24,7 +25,7 @@ export const Route = createFileRoute("/communities")({
       {
         name: "description",
         content:
-          "Share information about your community's water situation and get connected to funding, partners and volunteers to build a lasting clean-water project.",
+          "Describe your community's water situation and our assistant fills in the form for you — then get connected to funding, partners and volunteers.",
       },
       { property: "og:title", content: "For Communities — ImpactBridge" },
       {
@@ -56,39 +57,108 @@ const support = [
 
 const regions = filterOptions.location.filter((r) => r !== "All regions");
 
-const waterSources = [
-  "Seasonal dam / dugout",
-  "Hand-dug wells",
-  "River / stream",
-  "Failing borehole",
-  "Distant borehole",
-  "Sachet / tanker vendors",
-  "No reliable source",
-];
-
-const emptyForm = {
-  community: "",
-  region: "",
-  population: "",
-  source: "",
-  needs: "",
-  contact: "",
-};
-
-function CommunitiesPage() {
-  const [form, setForm] = useState(emptyForm);
-  const set = (key: keyof typeof form, value: string) =>
-    setForm((prev) => ({ ...prev, [key]: value }));
+function IntakeForm({
+  output,
+  setOutput,
+}: {
+  output: CommunityIntake;
+  setOutput: (updater: (prev: CommunityIntake) => CommunityIntake) => void;
+}) {
+  const set = (key: keyof CommunityIntake, value: string) =>
+    setOutput((prev) => ({ ...prev, [key]: value }));
 
   const submit = () => {
-    if (!form.community || !form.contact) {
+    if (!output.community || !output.contact) {
       toast.error("Please add your community name and a contact so we can reach you.");
       return;
     }
     toast.success("Thank you — we've received your community's details and will be in touch.");
-    setForm(emptyForm);
   };
 
+  return (
+    <div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="community">Community name</Label>
+          <Input
+            id="community"
+            placeholder="e.g. Zorko Community"
+            value={output.community}
+            onChange={(e) => set("community", e.target.value)}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="region">Region</Label>
+          <Select value={output.region} onValueChange={(v) => set("region", v)}>
+            <SelectTrigger id="region">
+              <SelectValue placeholder="Select a region" />
+            </SelectTrigger>
+            <SelectContent>
+              {regions.map((r) => (
+                <SelectItem key={r} value={r}>
+                  {r}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="population">People served (approx.)</Label>
+          <Input
+            id="population"
+            placeholder="e.g. 600"
+            value={output.population}
+            onChange={(e) => set("population", e.target.value)}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="source">Current main water source</Label>
+          <Select value={output.source} onValueChange={(v) => set("source", v)}>
+            <SelectTrigger id="source">
+              <SelectValue placeholder="Select a source" />
+            </SelectTrigger>
+            <SelectContent>
+              {waterSources.map((s) => (
+                <SelectItem key={s} value={s}>
+                  {s}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="needs">What is the main challenge?</Label>
+          <Textarea
+            id="needs"
+            rows={3}
+            placeholder="e.g. The dam runs dry from December and the school has no safe water."
+            value={output.needs}
+            onChange={(e) => set("needs", e.target.value)}
+          />
+        </div>
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="contact">Your contact (email or phone)</Label>
+          <Input
+            id="contact"
+            placeholder="name@example.com"
+            value={output.contact}
+            onChange={(e) => set("contact", e.target.value)}
+          />
+        </div>
+      </div>
+
+      <Button className="mt-6 w-full rounded-full sm:w-auto" onClick={submit}>
+        Submit your water need
+      </Button>
+      <p className="mt-3 text-xs text-muted-foreground">
+        Prototype — submissions aren't stored yet. The assistant fills fields from your description;
+        you can edit any of them directly.
+      </p>
+    </div>
+  );
+}
+
+function CommunitiesPage() {
   return (
     <>
       <section className="py-16 sm:py-20">
@@ -99,8 +169,8 @@ function CommunitiesPage() {
               Turn your water problem into a project.
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
-              You know your community best. Tell us about your water situation, people and local
-              skills — we will shape it into a project and open the doors to funding, partners and
+              You know your community best. Describe your water situation in your own words — our
+              assistant turns it into a project and opens the doors to funding, partners and
               volunteers.
             </p>
             <div className="mt-10 space-y-6">
@@ -130,94 +200,16 @@ function CommunitiesPage() {
 
       <section className="border-y border-border bg-surface py-16 sm:py-20">
         <div className="container-page">
-          <div className="max-w-2xl">
-            <p className="eyebrow">Tell us about your community</p>
-            <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">Share your water need</h2>
-            <p className="mt-4 text-muted-foreground">
-              A few details are enough to get started. Our team will follow up to shape a project
-              with you — there is no cost to the community.
-            </p>
-          </div>
-
-          <div className="card-soft mt-8 max-w-3xl p-6 sm:p-8">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="community">Community name</Label>
-                <Input
-                  id="community"
-                  placeholder="e.g. Zorko Community"
-                  value={form.community}
-                  onChange={(e) => set("community", e.target.value)}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="region">Region</Label>
-                <Select value={form.region} onValueChange={(v) => set("region", v)}>
-                  <SelectTrigger id="region">
-                    <SelectValue placeholder="Select a region" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {regions.map((r) => (
-                      <SelectItem key={r} value={r}>
-                        {r}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="population">People served (approx.)</Label>
-                <Input
-                  id="population"
-                  placeholder="e.g. 600"
-                  value={form.population}
-                  onChange={(e) => set("population", e.target.value)}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="source">Current main water source</Label>
-                <Select value={form.source} onValueChange={(v) => set("source", v)}>
-                  <SelectTrigger id="source">
-                    <SelectValue placeholder="Select a source" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {waterSources.map((s) => (
-                      <SelectItem key={s} value={s}>
-                        {s}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="needs">What is the main challenge?</Label>
-                <Textarea
-                  id="needs"
-                  rows={3}
-                  placeholder="e.g. The dam runs dry from December, the school has no safe water, and families walk two hours to fetch it."
-                  value={form.needs}
-                  onChange={(e) => set("needs", e.target.value)}
-                />
-              </div>
-              <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="contact">Your contact (email or phone)</Label>
-                <Input
-                  id="contact"
-                  placeholder="name@example.com"
-                  value={form.contact}
-                  onChange={(e) => set("contact", e.target.value)}
-                />
-              </div>
-            </div>
-
-            <Button size="lg" className="mt-8 w-full rounded-full sm:w-auto" onClick={submit}>
-              Submit your water need
-            </Button>
-            <p className="mt-3 text-xs text-muted-foreground">
-              This is a prototype — submissions are not yet stored. A real intake would route your
-              details to the ImpactBridge team.
-            </p>
-          </div>
+          <AssistantWorkspace
+            eyebrow="Tell us about your community"
+            title="Describe it — we'll fill in the form"
+            lead="Write a few sentences about your water situation. The assistant fills in what it can and asks about anything it's missing. There's no cost to the community."
+            engine={communitiesEngine}
+            outputTitle="Your water need"
+            renderOutput={(output, setOutput) => (
+              <IntakeForm output={output} setOutput={setOutput} />
+            )}
+          />
         </div>
       </section>
     </>

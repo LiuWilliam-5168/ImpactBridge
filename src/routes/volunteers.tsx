@@ -2,7 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, Globe2, HeartHandshake, Home, Users } from "lucide-react";
 
 import volunteerImage from "@/assets/volunteer-exchange.jpg";
+import { AssistantWorkspace } from "@/components/assistant/AssistantWorkspace";
+import { MatchResults } from "@/components/assistant/MatchResults";
 import { Button } from "@/components/ui/button";
+import { volunteersEngine } from "@/lib/assistant";
 import { projects } from "@/lib/projects";
 
 export const Route = createFileRoute("/volunteers")({
@@ -103,6 +106,24 @@ function VolunteersPage() {
       </section>
 
       <section className="py-16 sm:py-20">
+        <div className="container-page">
+          <AssistantWorkspace
+            eyebrow="Matching assistant"
+            title="Find the project that needs your skills"
+            lead="Tell the assistant about your skills, interests and availability, and it will match you with the projects where you'd have the most impact."
+            engine={volunteersEngine}
+            outputTitle="Your matches"
+            renderOutput={(output) => (
+              <MatchResults
+                state={output}
+                emptyHint="Describe your skills and availability above and your best-fit projects will appear here."
+              />
+            )}
+          />
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16 sm:py-20">
         <div className="container-page">
           <h2 className="text-2xl font-semibold sm:text-3xl">Open opportunities</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">

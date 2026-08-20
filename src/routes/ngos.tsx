@@ -2,8 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { BarChart3, FileCheck2, HandCoins, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 
+import { AssistantWorkspace } from "@/components/assistant/AssistantWorkspace";
+import { MatchResults } from "@/components/assistant/MatchResults";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
+import { ngosEngine } from "@/lib/assistant";
 import { projects } from "@/lib/projects";
 
 export const Route = createFileRoute("/ngos")({
@@ -101,6 +104,24 @@ function NgosPage() {
       </section>
 
       <section className="py-16 sm:py-20">
+        <div className="container-page">
+          <AssistantWorkspace
+            eyebrow="Funding assistant"
+            title="Find the projects that fit your mission"
+            lead="Describe your funding focus — regions, causes and typical grant size — and the assistant shortlists the projects that best match, then refines as you tell it more."
+            engine={ngosEngine}
+            outputTitle="Your shortlist"
+            renderOutput={(output) => (
+              <MatchResults
+                state={output}
+                emptyHint="Describe your funding focus above and your best-fit projects will appear here."
+              />
+            )}
+          />
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16 sm:py-20">
         <div className="container-page grid gap-8 md:grid-cols-2">
           {valueProps.map(({ icon: Icon, ...v }) => (
             <div key={v.title} className="card-soft flex gap-4 p-7">
