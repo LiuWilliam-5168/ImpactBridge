@@ -113,7 +113,13 @@ const tiers = [
   },
 ];
 
-function Recommendation({ rec }: { rec: CompanyRec }) {
+function Recommendation({
+  rec,
+  onRequest,
+}: {
+  rec: CompanyRec;
+  onRequest: (tier: string) => void;
+}) {
   if (!rec.tier) {
     return (
       <div className="flex h-full min-h-56 items-center justify-center text-center">
@@ -167,6 +173,10 @@ function Recommendation({ rec }: { rec: CompanyRec }) {
           </div>
         </div>
       )}
+
+      <Button className="mt-6 w-full rounded-full" onClick={() => onRequest(rec.tier)}>
+        Request the {rec.tier} package
+      </Button>
     </div>
   );
 }
@@ -281,7 +291,14 @@ function CompaniesPage() {
             lead="Tell the assistant your budget, CSR goals and reporting needs, and it will recommend the ESG sponsorship package that fits best — then refine it as you add detail."
             engine={companiesEngine}
             outputTitle="Recommended for you"
-            renderOutput={(output) => <Recommendation rec={output} />}
+            renderOutput={(output) => (
+              <Recommendation
+                rec={output}
+                onRequest={(tier) =>
+                  toast.success(`Thanks — we'll send the ${tier} ESG package and set up a call.`)
+                }
+              />
+            )}
           />
         </div>
       </section>
