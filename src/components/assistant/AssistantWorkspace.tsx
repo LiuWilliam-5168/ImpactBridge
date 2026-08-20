@@ -2,7 +2,7 @@ import { Loader2, RotateCcw, Send, Sparkles } from "lucide-react";
 import { useRef, useState, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import type { AssistantEngine, AssistantMessage } from "@/lib/assistant";
 
@@ -142,12 +142,14 @@ export function AssistantWorkspace<T>({
                 Not sure where to start? Use an example
               </button>
             )}
-            <div className="flex items-center gap-2">
-              <Input
+            <div className="flex items-end gap-2">
+              <Textarea
+                rows={2}
+                className="max-h-40 min-h-[2.75rem] resize-none"
                 placeholder={
                   started
                     ? awaitingReply
-                      ? "Type your answer…"
+                      ? "Type your answer… (Enter to send, Shift+Enter for a new line)"
                       : "You're all set — start over to try again"
                     : engine.placeholder
                 }
@@ -155,7 +157,10 @@ export function AssistantWorkspace<T>({
                 disabled={inputDisabled}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") send();
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    send();
+                  }
                 }}
               />
               <Button
